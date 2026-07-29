@@ -1,7 +1,6 @@
-/* Theme: browny — generated from ~/.config/themify/themes/browny/colors.sh
-   Palette variables only; all layout/typography lives in styles.css.
-   Dark values are the browny palette verbatim; light values are derived
-   from the same hues for a light-surface variant. */
+/* Palette variables only; all layout/typography lives in styles.css.
+   Dark values are the base palette; light values are derived from the
+   same hues for a light-surface variant. */
 
 :root {
   --bg: #f3efe9;
