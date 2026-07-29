@@ -1,33 +1,33 @@
-/* Theme: gotham — generated from ~/.config/themify/themes/gotham/colors.sh
+/* Theme: browny — generated from ~/.config/themify/themes/browny/colors.sh
    Palette variables only; all layout/typography lives in styles.css.
-   Dark values are the gotham palette verbatim; light values are derived
+   Dark values are the browny palette verbatim; light values are derived
    from the same hues for a light-surface variant. */
 
 :root {
-  --bg: #e9eef3;
+  --bg: #f3efe9;
   --panel: #ffffff;
-  --surface: #dce6ee;
-  --surface-1: #eef3f8;
-  --code-bg: #f2f6fa;
+  --surface: #eee6dc;
+  --surface-1: #f8f3ee;
+  --code-bg: #faf6f2;
 
-  --text: #22303d;
-  --text-muted: #5d6d7b;
-  --text-subtle: #8795a3;
-  --heading: #16232f;
+  --text: #3d3123;
+  --text-muted: #7b6d5d;
+  --text-subtle: #a39587;
+  --heading: #2f2316;
 
-  --accent: #0c7e97;
-  --accent-hover: #085e71;
-  --accent-code: #0b6e84;
-  --accent-muted: #4f93a3;
-  --secondary: #2f6f9c;
+  --accent: #9c4e1d;
+  --accent-hover: #7a3c14;
+  --accent-code: #8e4a20;
+  --accent-muted: #96684a;
+  --secondary: #7d5c34;
 
-  --border: #cbd7e2;
-  --border-muted: #dbe4ec;
-  --border-strong: #aebfcd;
+  --border: #e2d7cb;
+  --border-muted: #ece4db;
+  --border-strong: #cdbfae;
 
-  --selection-bg: #0c7e97;
+  --selection-bg: #9c4e1d;
   --selection-fg: #ffffff;
-  --mark-bg: #cfe7ee;
+  --mark-bg: #eedccf;
 
   --danger: #b51e10;
   --warning: #8a4e00;
@@ -37,30 +37,30 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #000d1d;
-    --panel: #0f1b2a;
-    --surface: #002a54;
-    --surface-1: #0f365e;
-    --code-bg: #000d1d;
+    --bg: #100c07;
+    --panel: #1e1a15;
+    --surface: #242321;
+    --surface-1: #31302e;
+    --code-bg: #100c07;
 
-    --text: #c0c1c3;
-    --text-muted: #959698;
-    --text-subtle: #676869;
+    --text: #c3c2c1;
+    --text-muted: #989796;
+    --text-subtle: #696868;
     --heading: #e8e8e8;
 
-    --accent: #1ebdd8;
-    --accent-hover: #66d2e4;
-    --accent-code: #58bed0;
-    --accent-muted: #5aaab8;
-    --secondary: #4f8eb5;
+    --accent: #c76930;
+    --accent-hover: #d89972;
+    --accent-code: #c68964;
+    --accent-muted: #b08063;
+    --secondary: #aa8b67;
 
-    --border: #001b36;
-    --border-muted: #00172f;
-    --border-strong: #1e364e;
+    --border: #171615;
+    --border-muted: #141312;
+    --border-strong: #323131;
 
-    --selection-bg: #1ebdd8;
-    --selection-fg: #0f1b2a;
-    --mark-bg: #294e6d;
+    --selection-bg: #c76930;
+    --selection-fg: #1e1a15;
+    --mark-bg: #744438;
 
     --danger: #c9564a;
     --warning: #b85000;
