@@ -1,0 +1,70 @@
+/* Theme: gotham — generated from ~/.config/themify/themes/gotham/colors.sh
+   Palette variables only; all layout/typography lives in styles.css.
+   Dark values are the gotham palette verbatim; light values are derived
+   from the same hues for a light-surface variant. */
+
+:root {
+  --bg: #e9eef3;
+  --panel: #ffffff;
+  --surface: #dce6ee;
+  --surface-1: #eef3f8;
+  --code-bg: #f2f6fa;
+
+  --text: #22303d;
+  --text-muted: #5d6d7b;
+  --text-subtle: #8795a3;
+  --heading: #16232f;
+
+  --accent: #0c7e97;
+  --accent-hover: #085e71;
+  --accent-code: #0b6e84;
+  --accent-muted: #4f93a3;
+  --secondary: #2f6f9c;
+
+  --border: #cbd7e2;
+  --border-muted: #dbe4ec;
+  --border-strong: #aebfcd;
+
+  --selection-bg: #0c7e97;
+  --selection-fg: #ffffff;
+  --mark-bg: #cfe7ee;
+
+  --danger: #b51e10;
+  --warning: #8a4e00;
+  --success: #0f7d4b;
+  --hl: #a34a10;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000d1d;
+    --panel: #0f1b2a;
+    --surface: #002a54;
+    --surface-1: #0f365e;
+    --code-bg: #000d1d;
+
+    --text: #c0c1c3;
+    --text-muted: #959698;
+    --text-subtle: #676869;
+    --heading: #e8e8e8;
+
+    --accent: #1ebdd8;
+    --accent-hover: #66d2e4;
+    --accent-code: #58bed0;
+    --accent-muted: #5aaab8;
+    --secondary: #4f8eb5;
+
+    --border: #001b36;
+    --border-muted: #00172f;
+    --border-strong: #1e364e;
+
+    --selection-bg: #1ebdd8;
+    --selection-fg: #0f1b2a;
+    --mark-bg: #294e6d;
+
+    --danger: #c9564a;
+    --warning: #b85000;
+    --success: #15a965;
+    --hl: #bf490a;
+  }
+}

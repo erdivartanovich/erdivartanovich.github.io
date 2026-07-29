@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+$for(author-meta)$
+    <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+    <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+    <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+$if(description-meta)$
+    <meta name="description" content="$description-meta$" />
+$endif$
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+$if(siteurl)$
+    <link rel="canonical" href="$siteurl$/$pageurl$" />
+    <link rel="alternate" type="application/atom+xml" title="Articles" href="$siteurl$/feed.xml" />
+    <meta property="og:url" content="$siteurl$/$pageurl$" />
+$endif$
+    <meta property="og:type" content="$if(date-meta)$article$else$website$endif$" />
+    <meta property="og:title" content="$pagetitle$" />
+$if(description-meta)$
+    <meta property="og:description" content="$description-meta$" />
+$endif$
+$if(title-prefix)$
+    <meta property="og:site_name" content="$title-prefix$" />
+$endif$
+$if(date-meta)$
+    <meta property="article:published_time" content="$date-meta$" />
+$endif$
+    <meta name="twitter:card" content="summary" />
+$if(date-meta)$
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"$pagetitle$","datePublished":"$date-meta$","author":{"@type":"Person","name":"Erdiansyah"},"url":"$siteurl$/$pageurl$"$if(description-meta)$,"description":"$description-meta$"$endif$}
+    </script>
+$endif$
+    <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+    <style>
+      $styles.html()$
+    </style>
+$for(css)$
+    <link rel="stylesheet" href="$css$" />
+$endfor$
+$for(header-includes)$
+    $header-includes$
+$endfor$
+$if(math)$
+    $math$
+$endif$
+  </head>
+  <body>
+$for(include-before)$
+    $include-before$
+$endfor$
+$if(navigation)$
+    <nav class="site-nav">
+$for(navigation)$
+      <a href="$navigation.url$">$navigation.label$</a>
+$endfor$
+    </nav>
+$endif$
+$if(title)$
+    <header id="title-block-header">
+      <h1 class="title">$title$</h1>
+$if(subtitle)$
+      <p class="subtitle">$subtitle$</p>
+$endif$
+$for(author)$
+      <p class="author">$author$</p>
+$endfor$
+$if(date)$
+      <p class="date">$date$</p>
+$endif$
+$if(abstract)$
+      <div class="abstract">
+        <div class="abstract-title">$abstract-title$</div>
+        $abstract$
+      </div>
+$endif$
+    </header>
+$endif$
+$if(toc)$
+    <nav id="$idprefix$TOC" role="doc-toc">
+$if(toc-title)$
+      <h2 id="$idprefix$toc-title">$toc-title$</h2>
+$endif$
+      $table-of-contents$
+    </nav>
+$endif$
+    $body$
+$if(show-articles)$
+    <section class="article-list">
+      <ul>
+$for(articles)$
+        <li><span class="article-date">$articles.date$</span> <a href="$articles.url$">$articles.title$</a></li>
+$endfor$
+      </ul>
+    </section>
+$endif$
+$for(include-after)$
+    $include-after$
+$endfor$
+  </body>
+</html>

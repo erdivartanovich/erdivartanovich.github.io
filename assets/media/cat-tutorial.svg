@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-label="Tutorial / How-to">
+  <rect width="800" height="220" rx="12" fill="#0f1b2a"/>
+  <rect x="1" y="1" width="798" height="218" rx="11" fill="none" stroke="#1e364e" stroke-width="2"/>
+  <rect x="0" y="208" width="800" height="12" fill="#1ebdd8" opacity="0.9"/>
+  <g transform="translate(110,110)">
+    <rect x="-58" y="-46" width="116" height="92" rx="10" fill="none" stroke="#1ebdd8" stroke-width="8"/>
+    <path d="M-36,-14 L-16,4 L-36,22" fill="none" stroke="#1ebdd8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="-2" y1="22" x2="34" y2="22" stroke="#1ebdd8" stroke-width="9" stroke-linecap="round"/>
+  </g>
+  <text x="210" y="103" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="#e8e8e8">Tutorial / How-to</text>
+  <text x="210" y="145" font-family="system-ui,sans-serif" font-size="21" fill="#959698">step by step, no magic</text>
+</svg>

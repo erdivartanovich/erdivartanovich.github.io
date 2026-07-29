@@ -1,0 +1,16 @@
+title-prefix: "erdivartanovich"
+siteurl: "https://erdivartanovich.github.io"
+author-meta: "Erdiansyah"
+lang: "en"
+css:
+  - "/theme.css"
+  - "/styles.css"
+navigation:
+  - label: "Home"
+    url: "/"
+  - label: "About"
+    url: "/about.html"
+  - label: "Portfolio"
+    url: "/portfolio.html"
+  - label: "Articles"
+    url: "/articles.html"

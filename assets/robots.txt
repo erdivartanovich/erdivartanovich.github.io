@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://erdivartanovich.github.io/sitemap.xml
