@@ -24,6 +24,9 @@ $if(siteurl)$
 $endif$
     <meta property="og:type" content="$if(date-meta)$article$else$website$endif$" />
     <meta property="og:title" content="$pagetitle$" />
+$if(siteurl)$
+    <meta property="og:image" content="$siteurl$/ulfberht.webp" />
+$endif$
 $if(description-meta)$
     <meta property="og:description" content="$description-meta$" />
 $endif$
@@ -57,6 +60,11 @@ $endif$
 $for(include-before)$
     $include-before$
 $endfor$
+$if(title-prefix)$
+    <a class="masthead" href="/" aria-label="$title-prefix$ — home">
+      <span class="masthead-title">$title-prefix$</span>
+    </a>
+$endif$
 $if(navigation)$
     <nav class="site-nav">
 $for(navigation)$

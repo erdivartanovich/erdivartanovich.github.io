@@ -27,6 +27,7 @@
   --selection-bg: #9c4e1d;
   --selection-fg: #ffffff;
   --mark-bg: #eedccf;
+  --veil: rgba(255, 255, 255, 0.34);
 
   --danger: #b51e10;
   --warning: #8a4e00;
@@ -60,6 +61,7 @@
     --selection-bg: #c76930;
     --selection-fg: #1e1a15;
     --mark-bg: #744438;
+    --veil: rgba(30, 26, 21, 0.42);
 
     --danger: #c9564a;
     --warning: #b85000;
