@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-label="POC / Test / Benchmark">
-  <rect width="800" height="220" rx="12" fill="#0f1b2a"/>
-  <rect x="1" y="1" width="798" height="218" rx="11" fill="none" stroke="#1e364e" stroke-width="2"/>
+  <rect width="800" height="220" rx="12" fill="#1e1a15"/>
+  <rect x="1" y="1" width="798" height="218" rx="11" fill="none" stroke="#323131" stroke-width="2"/>
   <rect x="0" y="208" width="800" height="12" fill="#15a965" opacity="0.9"/>
   <g transform="translate(110,110)">
     <line x1="-56" y1="50" x2="56" y2="50" stroke="#15a965" stroke-width="8" stroke-linecap="round"/>
@@ -11,5 +11,5 @@
     <circle cx="36" cy="-56" r="7" fill="#e8e8e8"/>
   </g>
   <text x="210" y="103" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="#e8e8e8">POC / Benchmark</text>
-  <text x="210" y="145" font-family="system-ui,sans-serif" font-size="21" fill="#959698">measured, not guessed</text>
+  <text x="210" y="145" font-family="system-ui,sans-serif" font-size="21" fill="#989796">measured, not guessed</text>
 </svg>
