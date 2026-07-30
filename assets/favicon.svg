@@ -1,1 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1e1a15"/><text x="16" y="23" font-family="system-ui,sans-serif" font-size="20" font-weight="700" fill="#c76930" text-anchor="middle">e</text></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20.204834mm"
+   height="19.842928mm"
+   viewBox="0 0 20.204834 19.842928"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-66.796215,-75.299936)">
+    <ellipse
+       style="fill:#1a1a1a;stroke:#000000;stroke-width:0.504601;stroke-linecap:round"
+       id="path1"
+       cx="76.898636"
+       cy="85.221397"
+       rx="9.8501186"
+       ry="9.6691637" />
+    <text
+       xml:space="preserve"
+       style="font-size:14.5856px;font-family:Rajdhani;-inkscape-font-specification:Rajdhani;writing-mode:lr-tb;direction:ltr;fill:#ff6600;stroke:none;stroke-width:0.683703;stroke-linecap:round"
+       x="68.219307"
+       y="91.876534"
+       id="text1"><tspan
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.5856px;font-family:'Ananda Black Personal Use';-inkscape-font-specification:'Ananda Black Personal Use';fill:#ff6600;stroke:none;stroke-width:0.683703"
+         x="68.219307"
+         y="91.876534">E</tspan></text>
+  </g>
+</svg>
