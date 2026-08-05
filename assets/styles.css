@@ -57,9 +57,10 @@ a:hover {
   height: var(--masthead-h);
   margin: 0 -2rem;
   padding: 0 2rem;
+  backgrouen-color: var(--bg);
   background:
-    linear-gradient(to bottom, var(--veil), var(--panel) 97%),
-    url("/ulfberht.webp") center 42% / cover no-repeat var(--panel);
+    linear-gradient(to bottom, var(--veil), var(--panel) 110%),
+    url("/ulfberht.webp") center 26% / cover no-repeat var(--panel);
   background-blend-mode: normal, multiply;
   border-bottom: 1px solid var(--border-strong);
   text-align: center;
@@ -74,6 +75,7 @@ a:hover {
   text-indent: 0.42em;
   color: var(--heading);
   text-shadow: 0 1px 0 var(--panel);
+  transform: translateY(1rem);
 }
 
 .masthead:hover {
@@ -392,7 +394,7 @@ mark {
   padding-top: 1rem;
   border-top: 1px solid var(--border-muted);
   font-size: 0.78rem;
-  color: var(--text-subtle);
+  color: var(--text-muted);
   text-align: left;
 }
 
@@ -400,9 +402,9 @@ mark {
   margin: 0;
 }
 
-.site-footer a {
-  color: var(--text-muted);
-}
+/* .site-footer a { */
+/*   color: var(--text-muted); */
+/* } */
 
 /* TOC: inline box by default; on wide screens the page becomes a grid
    (18rem rail + content, one 68rem composition) and the TOC is a sticky
