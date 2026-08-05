@@ -7,9 +7,9 @@ description: "How an innocent cat alias silently corrupted config files with ANS
 
 ![](/media/cat-gotchas.svg)
 
-I shipped myself a bug so sneaky it deserved a post-mortem. No error, no
-stack trace. Just a config file that looked fine and broke everything that
-read it.
+I shipped myself a bug so sneaky it deserved a post-mortem. No error. No
+stack trace. Just a config file that looked fine and broke everything
+that read it.
 
 ## The setup
 
@@ -17,8 +17,8 @@ Like every dotfiles enjoyer, I had aliased `cat` to `bat --style=plain
 --color=always` for the pretty syntax highlighting.
 
 An **alias** is a shell nickname: the name stays, the program behind it
-changes. Think of it as monkey-patching your terminal. It feels great
-right up until it doesn't.
+changes. Think of it as monkey-patching your terminal. Feels great right
+up until the monkey bites.
 
 ## The incident
 
@@ -35,16 +35,20 @@ color codes **even when output goes to a file**, overriding the usual
 "no colors when not a terminal" behavior.
 
 Terminal colors are invisible escape bytes like `^[[37m` wrapped around
-text. On screen: pretty. In a config file: sabotage. It's like committing
-your debug `console.log` calls, except they're invisible in `git diff`.
+text. On screen: pretty. In a config file: sabotage. It's like shipping
+a debug `console.log` you forgot to remove — except the log line is
+invisible in `git diff`. No one flags it in review, and prod eats it
+anyway.
 
-The app choked on the garbage bytes. Silently. Naturally.
+The app choked on the garbage bytes. Silently. Naturally. A production
+incident with no alert configured, in miniature.
 
 ## Lesson 1: trust no bare command name
 
-Aliases only fire in interactive shells. The same line inside a script
-runs the real `cat`. So the bug exists when you test by hand and vanishes
-in CI — the reverse of "works on my machine."
+Aliases only fire in **interactive shells**. The same line inside a
+script runs the real `cat`. So the bug exists when you test by hand and
+vanishes in CI — the reverse of "works on my machine." Green locally,
+green in review, broken in production.
 
 When it matters, bypass the nickname:
 
@@ -55,6 +59,8 @@ command cat file   # skip aliases and functions
 ```
 
 Not sure what a name really runs? `type cat` will rat out your alias.
+It's a code review for your shell: it shows you what actually executes,
+not what you think does.
 
 ## Lesson 2: delete the moving part
 
@@ -73,8 +79,9 @@ What you gain:
 - **No extra process to misbehave.**
 - **A whole failure category, deleted.**
 
-I didn't fix the bug. I removed the code path it lived on. Best refactor
-ever.
+I didn't fix the bug. I removed the code path it lived on. The shell
+equivalent of deleting a flaky test instead of praying over it. Best
+refactor ever.
 
 ## FAQ
 
