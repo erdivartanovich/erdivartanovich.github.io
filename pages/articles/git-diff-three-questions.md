@@ -12,7 +12,7 @@ related:
 ![](/media/cat-tutorial.svg)
 
 You stage a file, run `git diff` to double-check it, and see... nothing.
-Cue the tiny heart attack before your first PR of the day.
+That tiny heart attack before your first PR of the day is real.
 
 Relax — your change didn't vanish. You just asked git the wrong question.
 
@@ -21,17 +21,19 @@ Relax — your change didn't vanish. You just asked git the wrong question.
 Between "I typed it" and "it's committed," every change passes through
 three zones:
 
-- **Working tree** — the files in your editor, unsaved chaos included.
-- **Index** (a.k.a. **staging**) — the shopping cart. Changes you've
-  `git add`-ed, queued up for the next commit.
-- **HEAD** — the last commit. The receipt for what you already bought.
+- **Working tree** — the files as they sit in your editor, unsaved
+  chaos included.
+- **Index** (a.k.a. **staging**) — your shopping cart. Everything
+  you've `git add`-ed is queued here for the next commit.
+- **HEAD** — your last commit. It's the receipt for what you already
+  bought.
 
-Think of them as your three environments. Working tree is dev, where you
-tinker. Index is staging, where you line things up. HEAD is prod — what's
-already deployed. `git diff` moves a change between environments, two at
-a time.
+Think of them as your three environments. The working tree is dev,
+where you tinker. The index is staging, where you line things up. HEAD
+is the closest thing to prod — it's the last version that actually
+shipped.
 
-`git diff` always compares exactly two of these zones. Which two depends
+`git diff` compares two of these zones at a time, and which two depends
 on how you call it:
 
 | You type | Compares | Shows |
@@ -58,9 +60,9 @@ file:
 - **Right column** = the working tree (unstaged).
 - `??` = untracked — git has never met this file.
 
-So `MM app.js` means: some changes staged, plus new edits since you
-staged. Yes, you can commit half a file's changes. Yes, that surprises
-everyone once.
+So `MM app.js` means some changes are staged, plus new edits since you
+staged. Yes, you can commit half a file's changes — a fact that
+surprises everyone exactly once.
 
 ## The blind spot: untracked files
 
@@ -74,6 +76,22 @@ To list them (stable output, safe for scripts):
 ```sh
 git ls-files --others --exclude-standard
 ```
+
+## The same engine, any two commits
+
+The three zones are just the default. `git diff` will happily compare
+any two commits:
+
+```sh
+git diff HEAD~1          # working tree vs the commit before last
+git diff HEAD~1 HEAD     # exactly what the last commit touched
+git diff main...feature  # what feature adds to main (three dots = common ancestor)
+```
+
+Reviewing your own last commit becomes one command instead of a guess.
+Add `--stat` and you get a summary of files and line counts instead of
+the full patch — handy when you only want to know what a big merge
+actually changed.
 
 ## FAQ
 

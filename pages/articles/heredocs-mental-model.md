@@ -26,28 +26,46 @@ line two
 EOF
 ```
 
-`EOF` is just a marker meaning "block ends here." You could use `BANANA`.
-Please don't.
+`EOF` is just a marker meaning "block ends here." You could use
+`BANANA`. Please don't.
 
-## The one decision that matters: template or mail-merge?
+## The one decision that matters: template or baked-in values?
 
 Tiny quotes around the marker completely change what gets delivered.
 This is the part everyone learns the hard way, usually in production.
 
 - `<<'EOF'` (quoted) — behaves like a committed `.env.example`. Every
   `$VARIABLE` stays a literal placeholder. The block is **data**.
-- `<<EOF` (unquoted) — behaves like CI doing the mail-merge. Your shell
-  fills in every `$VARIABLE` first, *then* delivers. The block is
-  **code**.
+- `<<EOF` (unquoted) — behaves like a CI step that bakes real values
+  into the artifact at build time. Your shell fills in every
+  `$VARIABLE` first, then hands the finished block to the command. The
+  block is **code**.
 
-Writing a config that contains real dollar signs? Quote the marker. Want
-to inject your current git tag into the block? Don't.
+Writing a config that contains real dollar signs? Quote the marker.
+Want to inject your current git tag into the block? Don't.
+
+## The escape hatch: one literal dollar sign
+
+Sometimes you want almost everything expanded, but one value must stay
+literal. A backslash saves just that one:
+
+```sh
+cat <<EOF
+host: $(hostname)
+build: \$(date +%F)
+EOF
+```
+
+Quoted would freeze every variable; unquoted expands them all. The
+backslash keeps exactly one `$(date +%F)` on paper instead of running
+it. Handy when a config snippet contains shell syntax that isn't meant
+for your shell.
 
 ## Tool 1: write a file with zero middlemen
 
-Most snippets online use `cat` to pipe the block into a file. Plot
-twist: you don't need a command at all. The shell does redirection
-natively:
+Most snippets online use `cat` to pipe the block into a file. The plot
+twist is that you don't need a command at all. The shell does
+redirection natively:
 
 ```sh
 >> ~/.zshrc <<'EOF'
@@ -58,16 +76,16 @@ EOF
 
 Why the command-free version wins:
 
-- **Nothing to alias-hijack** — no `cat` that's secretly `bat` (ask me
-  how I know).
+- **Nothing to hijack** — there's no `cat` for an alias to replace, not
+  even the one that's secretly `bat` (ask me how I know).
 - **One less process** — the shell opens the file and drops the block in.
-- **Fewer moving parts** — fewer 2am debugging sessions.
+- **Fewer moving parts** — which means fewer things to debug at 2 a.m.
 
 ## Tool 2: run your runbook in one shot
 
 Point the block at an interpreter instead of a file, and every line gets
-**executed**. It's the difference between emailing someone a checklist
-and having them actually do it:
+**executed**. It's the difference between a README that describes the
+steps and a script that actually performs them:
 
 ```sh
 ssh user@server <<'EOF'
@@ -76,8 +94,9 @@ systemctl restart nginx
 EOF
 ```
 
-One SSH connection, the whole deploy checklist, no copy-paste roulette.
-Works with `sudo bash`, `docker exec -i`, even `python3`.
+One SSH connection runs the whole deploy checklist, with none of the
+copy-paste roulette. It works with `sudo bash`, `docker exec -i`, even
+`python3`.
 
 The quoting rule pays double here. Quoted marker = `$(df -h)` runs **on
 the server**. Unquoted = your laptop fills it in before sending. Mixing
@@ -93,7 +112,7 @@ indented function. Write `<<-EOF` and the shell strips leading **tabs**
 
 For a single value, skip the ceremony. Three arrows — a **herestring** —
 feed one string to a command. It's the `const` of shell input: one
-value, no block, no marker:
+value, no block, and no marker to close:
 
 ```sh
 tr 'a-z' 'A-Z' <<< "hello world"
