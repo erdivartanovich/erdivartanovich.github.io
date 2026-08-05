@@ -3,6 +3,10 @@ title: "When cat isn't cat: an alias that corrupts your files"
 author: "Erdiansyah"
 date: "2026-07-15"
 description: "How an innocent cat alias silently corrupted config files with ANSI color codes — and the two lessons it taught."
+modified: "2026-08-05"
+related:
+  - url: /articles/bash-without-if.html
+    title: "Most shell scripts don't need if"
 ---
 
 ![](/media/cat-gotchas.svg)

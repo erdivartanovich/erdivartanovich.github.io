@@ -3,6 +3,12 @@ title: "Shell heredocs: one mental model, four tools"
 author: "Erdiansyah"
 date: "2026-07-14"
 description: "One mental model for shell heredocs: quoted vs unquoted delimiters, writing files with no command, and running whole blocks over ssh."
+modified: "2026-08-05"
+related:
+  - url: /articles/bash-without-if.html
+    title: "Most shell scripts don't need if"
+  - url: /articles/building-this-site.html
+    title: "Building this site: pandoc, make, and nothing else"
 ---
 
 ![](/media/cat-tutorial.svg)

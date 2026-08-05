@@ -3,6 +3,12 @@ title: "Building this site: pandoc, make, and nothing else"
 author: "Erdiansyah"
 date: "2026-07-29"
 description: "How this site is built with pandoc, make, and a 30-line shell script — basic commands for both tools, and why the pair beats a framework."
+modified: "2026-08-05"
+related:
+  - url: /articles/heredocs-mental-model.html
+    title: "Shell heredocs: one mental model, four tools"
+  - url: /articles/bash-without-if.html
+    title: "Most shell scripts don't need if"
 ---
 
 ![](/media/cat-tutorial.svg)
