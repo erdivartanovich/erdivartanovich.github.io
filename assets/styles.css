@@ -221,6 +221,27 @@ blockquote {
   color: var(--text-muted);
 }
 
+/* Centered pull-quote (index page sign-off). */
+.pull-quote blockquote {
+  max-width: 24em;
+  margin: 2.75em auto 1.5em;
+  padding: 1.1em 1.5em;
+  border-left: none;
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.08em;
+  color: var(--heading);
+}
+
+.pull-quote blockquote p:last-child {
+  margin: 0.9em 0 0;
+  font-style: normal;
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
 table {
   border-collapse: collapse;
 }
@@ -317,7 +338,7 @@ mark {
   border-top: 1px solid var(--border-muted);
   font-size: 0.78rem;
   color: var(--text-subtle);
-  text-align: center;
+  text-align: left;
 }
 
 .site-footer p {
