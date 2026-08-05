@@ -45,7 +45,7 @@ Petrosian** — "Vartanovich" meaning "son of Vartan" — ruled the world
 championship from 1963 to 1969. Everyone called him **Iron Tigran**, not
 because he is a strong man.
 
-His playing style appeared dull. quiet moves, careful positioning, no flash. Opponents
+His playing style appeared dull. Quiet moves, careful positioning, no flash. Opponents
 pushed and found nothing, then slowly lost because of their own mistakes.
 Chess spectators were bored of his style, but the scoreboard told a different
 story.
