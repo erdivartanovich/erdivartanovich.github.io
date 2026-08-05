@@ -41,8 +41,9 @@ The one-liner:
 [ -d "$dir" ] && cd "$dir"
 ```
 
-Reads like a sentence: directory exists, **and then** enter it. Four lines
-become one, and nothing was lost but ceremony.
+Reads like a sentence: directory exists, **and then** enter it. Four
+lines become one, and nothing was lost but ceremony. It's the shell
+equivalent of a diff that deletes more lines than it adds.
 
 ## The guard clause pattern
 
@@ -55,7 +56,9 @@ mkdir -p "$out" && cp "$src" "$out" && echo "done"
 ```
 
 Check, bail. Check, bail. Then do the work. It's the shell version of
-early returns — the same trick that makes functions readable.
+**early returns** — the same trick that makes functions readable. Same
+philosophy as a CI job where one failing step halts the whole build:
+fail fast, fail visibly, fail at the top.
 
 Why this style wins:
 
