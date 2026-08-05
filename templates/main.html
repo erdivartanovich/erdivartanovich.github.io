@@ -35,13 +35,26 @@ $if(title-prefix)$
 $endif$
 $if(date-meta)$
     <meta property="article:published_time" content="$date-meta$" />
+$if(modified)$
+    <meta property="article:modified_time" content="$modified$" />
+$endif$
 $endif$
     <meta name="twitter:card" content="summary" />
+$if(noindex)$
+    <meta name="robots" content="noindex" />
+$endif$
 $if(date-meta)$
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"BlogPosting","headline":"$pagetitle$","datePublished":"$date-meta$","author":{"@type":"Person","name":"Erdiansyah"},"url":"$siteurl$/$pageurl$"$if(description-meta)$,"description":"$description-meta$"$endif$}
+    {"@context":"https://schema.org","@type":"BlogPosting","headline":"$pagetitle$","datePublished":"$date-meta$"$if(modified)$,"dateModified":"$modified$"$endif$,"author":{"@type":"Person","@id":"$siteurl$/#person","name":"Erdiansyah"},"url":"$siteurl$/$pageurl$"}
+    </script>
+$else$
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"$title-prefix$","url":"$siteurl$/"}
     </script>
 $endif$
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","@id":"$siteurl$/#person","name":"Erdiansyah","url":"$siteurl$/"}
+    </script>
     <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
     <style>
       $styles.html()$
@@ -103,6 +116,18 @@ $endif$
     <main>
       $body$
     </main>
+$if(date-meta)$
+$if(related)$
+    <section class="related">
+      <h2>Related</h2>
+      <ul>
+$for(related)$
+        <li><a href="$related.url$">$related.title$</a></li>
+$endfor$
+      </ul>
+    </section>
+$endif$
+$endif$
 $if(show-articles)$
     <section class="article-list">
       <ul>
