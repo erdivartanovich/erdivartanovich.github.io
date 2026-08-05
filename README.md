@@ -110,7 +110,9 @@ Three POSIX-sh scripts parse frontmatter with `awk` — no dependencies:
   `pages/articles/`, sorts newest-first, writes `articles.yaml`.
 - `gen-feed.sh` — writes the Atom feed from the same frontmatter.
 - `gen-sitemap.sh` — lists every page; maps `index.md` to `/` and skips
-  `404.md`.
+  `404.md`. `lastmod` comes from git (`git log -1 --format=%cs`), falling
+  back to `date:` outside a repo — the CI checkout must use
+  `fetch-depth: 0` so lastmod is real, not the publish date.
 
 ## Writing a post
 
@@ -122,10 +124,19 @@ Three POSIX-sh scripts parse frontmatter with `awk` — no dependencies:
    author: "Your Name"
    date: "2026-08-05"
    description: "One line for SEO, the feed, and the og: tag."
+   modified: "2026-08-05"   # optional: set when you edit an existing post
+   related:                  # optional: internal links, shown on the post
+     - url: /articles/other-post.html
+       title: "Other post title"
    ---
 
    Write your post in markdown.
    ```
+
+   `modified:` feeds `article:modified_time` and the JSON-LD `dateModified`;
+   `related:` renders a "Related" block for crawl + dwell-time signals.
+   The sitemap `lastmod` is taken from git history (see below), not
+   `date:` — so an edit needs no frontmatter bump, just a commit.
 
 2. Run `make`. The homepage, the articles page, the feed, and the
    sitemap all update themselves — no list to maintain by hand.
