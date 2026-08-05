@@ -57,10 +57,14 @@ Why this version wins:
 - **One less process** — the shell opens the file and drops the block in.
 - **Fewer moving parts** — which means fewer things to debug at 2 a.m.
 
-### Run commands on a server
+### Feed commands to ssh, sudo, and docker
 
-Point the block at `ssh` and every line gets **executed** on the remote
-machine:
+A heredoc can point at a whole shell session instead of one command,
+and every line gets **executed** there. Start with the remote server:
+
+**ssh** opens a secure terminal session on another computer, so you
+type commands there as if you were sitting in front of it. Without a
+heredoc you'd paste each line one at a time into that session:
 
 ```sh
 ssh user@server <<'EOF'
@@ -70,9 +74,32 @@ EOF
 ```
 
 One SSH connection runs the whole deploy checklist, with no
-copy-pasting command by command. The same idea works with `sudo bash`
-and `docker exec -i`. Which marker quoting to use here is a gotcha of
-its own — more on that below.
+copy-pasting command by command.
+
+**sudo** runs one command with admin rights. It can't take a whole
+script, so you hand it `bash`: `sudo bash` reads the heredoc, and every
+line runs with admin rights:
+
+```sh
+sudo bash <<'EOF'
+apt-get update
+apt-get install -y nginx
+EOF
+```
+
+**docker exec** runs a command inside a running container — an isolated
+Linux environment. Point `docker exec` at the container's `bash`, and
+the heredoc runs a whole build sequence inside it, in one go:
+
+```sh
+docker exec -i web bash <<'EOF'
+cd /app
+npm ci && npm run build
+EOF
+```
+
+Which marker quoting to use over ssh is a gotcha of its own — more on
+that below.
 
 ### Run a program without creating a file
 
