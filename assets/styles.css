@@ -57,7 +57,7 @@ a:hover {
   height: var(--masthead-h);
   margin: 0 -2rem;
   padding: 0 2rem;
-  backgrouen-color: var(--bg);
+  background-color: var(--bg);
   background:
     linear-gradient(to bottom, var(--veil), var(--panel) 110%),
     url("/ulfberht.webp") center 26% / cover no-repeat var(--panel);
