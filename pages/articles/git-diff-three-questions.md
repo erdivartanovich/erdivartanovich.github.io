@@ -22,6 +22,11 @@ three zones:
   `git add`-ed, queued up for the next commit.
 - **HEAD** — the last commit. The receipt for what you already bought.
 
+Think of them as your three environments. Working tree is dev, where you
+tinker. Index is staging, where you line things up. HEAD is prod — what's
+already deployed. `git diff` moves a change between environments, two at
+a time.
+
 `git diff` always compares exactly two of these zones. Which two depends
 on how you call it:
 
@@ -42,7 +47,8 @@ actually wanted is `git diff --staged`.
 
 ## The map: git status -s
 
-`git status -s` prints the whole three-zone model as two columns per file:
+`git status -s` prints the whole three-zone model as two columns per
+file:
 
 - **Left column** = the cart (staged).
 - **Right column** = the working tree (unstaged).
@@ -55,7 +61,9 @@ everyone once.
 ## The blind spot: untracked files
 
 No diff command shows untracked files — there's no baseline to compare
-against. Your brand-new file is invisible to all three questions.
+against. Your brand-new file is invisible to all three questions. A
+staged diff over a new project shows nothing until that first `git add`,
+which reads like a failed build until you remember the rule.
 
 To list them (stable output, safe for scripts):
 
