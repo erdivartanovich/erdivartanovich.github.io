@@ -326,6 +326,27 @@ mark {
   margin-bottom: 0.55rem;
 }
 
+.related {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-muted);
+}
+
+.related h2 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.related ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.related li {
+  margin-bottom: 0.45rem;
+}
+
 .article-date {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
