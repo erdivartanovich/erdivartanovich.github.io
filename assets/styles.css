@@ -327,24 +327,58 @@ mark {
 }
 
 .related {
-  margin-top: 2.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-muted);
+  margin-top: 3rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  background: var(--surface-1);
 }
 
 .related h2 {
-  font-size: 1rem;
-  margin-bottom: 0.6rem;
+  margin: 0 0 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent-muted);
 }
 
 .related ul {
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.4rem 1.5rem;
 }
 
 .related li {
-  margin-bottom: 0.45rem;
+  margin: 0;
+}
+
+.related a {
+  display: block;
+  padding: 0.45rem 0.6rem;
+  border-left: 2px solid var(--border-strong);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.related a::after {
+  content: "\2192";
+  opacity: 0;
+  margin-left: 0.45rem;
+  transition: opacity 0.15s ease;
+}
+
+.related a:hover {
+  border-left-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+.related a:hover::after {
+  opacity: 1;
 }
 
 .article-date {
