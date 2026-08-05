@@ -51,7 +51,7 @@ It's like checking your editor for unsaved changes after you hit save.
 Empty isn't broken — empty means you did the thing. The panic-check you
 actually wanted is `git diff --staged`.
 
-## The map: git status -s
+## Read the zones with git status -s
 
 `git status -s` prints the whole three-zone model as two columns per
 file:
@@ -77,7 +77,7 @@ To list them (stable output, safe for scripts):
 git ls-files --others --exclude-standard
 ```
 
-## The same engine, any two commits
+## Diff any two commits
 
 The three zones are just the default. `git diff` will happily compare
 any two commits:

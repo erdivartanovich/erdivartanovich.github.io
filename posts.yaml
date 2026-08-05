@@ -11,6 +11,6 @@ posts:
   - title: "When cat isn't cat: an alias that corrupts your files"
     date: "2026-07-15"
     url: "when-cat-is-not-cat.html"
-  - title: "Shell heredocs: one mental model, four tools"
+  - title: "Shell heredocs: power, gotchas, and pro tips"
     date: "2026-07-14"
     url: "heredocs-mental-model.html"

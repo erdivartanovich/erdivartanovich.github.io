@@ -6,7 +6,7 @@ description: "How this site is built with pandoc, make, and a 30-line shell scri
 modified: "2026-08-05"
 related:
   - url: /articles/heredocs-mental-model.html
-    title: "Shell heredocs: one mental model, four tools"
+    title: "Shell heredocs: power, gotchas, and pro tips"
   - url: /articles/bash-without-if.html
     title: "Most shell scripts don't need if"
 ---
@@ -42,15 +42,14 @@ old tools do everything: **pandoc** turns words into pages, **make**
 decides what needs rebuilding. Here's the whole machine — the basic
 commands, why this pair is enough, and how each step works.
 
-## The cast: pandoc
+## Pandoc, the document converter
 
 **Pandoc** is a document converter. It reads one format and writes
 another. Markdown goes in, HTML comes out — or HTML in and PDF out, or
 EPUB, LaTeX, plain text. You name it.
 
-People call it the Swiss Army knife of document conversion. A truer
-image is `sed` for whole documents: one filter that rewrites any format
-into any other, at a scale text streams can only dream of.
+Think of pandoc as `sed` for whole documents: one filter that rewrites
+any format into any other, at a scale text streams can only dream of.
 
 The basic command is one line:
 
@@ -71,7 +70,7 @@ pandoc --list-output-formats      # everything it can write
 Reference: [pandoc.org](https://pandoc.org). The manual is famously
 long. The getting-started page covers 90% of daily use, and it's short.
 
-## The cast: make
+## Make, the build tool
 
 **Make** is the build tool that refused to die, and for good reason: it
 solved the original build problem in 1976, and nothing since has done it
@@ -195,7 +194,7 @@ $(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(ARTICLESMETA)
 	  --metadata-file=$(SITEMETA) --metadata-file=$(ARTICLESMETA) -o $@
 ```
 
-The pieces, decoded:
+Here's what each piece does:
 
 - `%.html` — a **pattern rule**. The `%` matches any page, so you write
   this once and make generates it for every file. No per-page boilerplate.

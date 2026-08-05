@@ -53,7 +53,7 @@ Here's what the file actually contained:
 ```
 
 The app's parser saw one giant blob of bytes per line, all of them
-garbage. It choked on them, silently and without any fanfare. A
+garbage. It choked on them, silently and without any fanfare. It was a
 production incident with no alert configured, in miniature.
 
 ## Lesson 1: trust no bare command name
@@ -76,7 +76,7 @@ Run plain `alias` and you'll see every nickname your shell has loaded.
 It's a code review for your shell: it shows you what actually executes,
 not what you think does.
 
-## Lesson 2: delete the moving part
+## Lesson 2: skip the command entirely
 
 Here's the kicker: `cat` was never needed. The shell writes heredocs to
 files all by itself:
@@ -104,11 +104,11 @@ the best refactor ever.
 
 **Should I stop aliasing cat to bat?**
 Keep it — it's genuinely nice. Just remember it exists when redirected
-output looks haunted.
+output comes out wrong.
 
 **How do I spot escape codes in a file?**
 Open it with `less` (not your aliased cat!). Junk like `^[[37m` around
-each line is your smoking gun.
+each line is the sign you're looking for.
 
 **Why didn't bat notice it wasn't writing to a terminal?**
 It did. `--color=always` explicitly tells it to color anyway. The flag

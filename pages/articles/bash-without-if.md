@@ -6,7 +6,7 @@ description: "Guard clauses with && and || make shell scripts flatter and more r
 modified: "2026-08-05"
 related:
   - url: /articles/heredocs-mental-model.html
-    title: "Shell heredocs: one mental model, four tools"
+    title: "Shell heredocs: power, gotchas, and pro tips"
   - url: /articles/when-cat-is-not-cat.html
     title: "When cat isn't cat: an alias that corrupts your files"
 ---
@@ -19,7 +19,7 @@ contrast, has five levels of nesting, and nobody on the team trusts it.
 
 The secret is two operators you already half-know: `&&` and `||`.
 
-## Exit codes are the whole trick
+## How exit codes work
 
 Every command ends with an **exit code** — a small status number, the
 shell's version of a CI build status. Zero means success; anything else
@@ -76,7 +76,7 @@ Why this style wins:
 - **Honest.** Every failure path sits right where it happens, visible at
   a glance.
 
-## Where the shortcut bites
+## Where the shortcut goes wrong
 
 One trap: `a && b || c` is **not** if/else. If `b` fails, `c` runs too.
 That bug has shipped more times than anyone will admit in standup.

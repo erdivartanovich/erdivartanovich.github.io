@@ -1,23 +1,24 @@
 ---
-title: "Shell heredocs: one mental model, four tools"
+title: "Shell heredocs: power, gotchas, and pro tips"
 author: "Erdiansyah"
 date: "2026-07-14"
-description: "One mental model for shell heredocs: quoted vs unquoted delimiters, writing files with no command, and running whole blocks over ssh."
+description: "Heredocs write files, run commands over ssh, and feed any interpreter — but quotes around the marker can trip you up. The power, the gotchas, and the pro tips."
 modified: "2026-08-05"
 related:
+  - url: /articles/when-cat-is-not-cat.html
+    title: "When cat isn't cat: an alias that corrupts your files"
   - url: /articles/bash-without-if.html
     title: "Most shell scripts don't need if"
-  - url: /articles/building-this-site.html
-    title: "Building this site: pandoc, make, and nothing else"
 ---
 
 ![](/media/cat-tutorial.svg)
 
-You know that move where you paste a whole config into a Slack code
-block, so nobody has to type it line by line? A **heredoc** is that
-move, but for your shell.
+Do you ever watch a senior dev type several lines of config right at
+the shell prompt, without opening an editor or a scratch file? The
+whole block goes to a command in one shot. That's a **heredoc**.
 
-It hands a multi-line block of text to a command in one go:
+A heredoc is a multi-line block of text handed to a command as one
+input. Here's the shape:
 
 ```sh
 command <<EOF
@@ -26,28 +27,92 @@ line two
 EOF
 ```
 
-`EOF` is just a marker meaning "block ends here." You could use
+`EOF` is just a marker that says "block ends here." You could use
 `BANANA`. Please don't.
 
-## The one decision that matters: template or baked-in values?
+That one shape does a surprising amount of real work — writing config
+files, deploying to a server, running scripts without saving them. It
+also hides a couple of ways to shoot yourself. Here's the power, the
+gotchas, and the pro tips.
 
-Tiny quotes around the marker completely change what gets delivered.
-This is the part everyone learns the hard way, usually in production.
+## The power
+
+### Write a file without a command
+
+Most snippets online use `cat` to pipe a block into a file. You don't
+need a command for that. The shell writes the file itself:
+
+```sh
+>> ~/.zshrc <<'EOF'
+alias gpo='git push origin'
+alias ga='git add .'
+EOF
+```
+
+Why this version wins:
+
+- **Nothing to hijack** — there's no command for an alias to swap in.
+  A `cat` aliased to `bat` will corrupt a config file written this way —
+  see [When cat isn't cat](/articles/when-cat-is-not-cat.html).
+- **One less process** — the shell opens the file and drops the block in.
+- **Fewer moving parts** — which means fewer things to debug at 2 a.m.
+
+### Run commands on a server
+
+Point the block at `ssh` and every line gets **executed** on the remote
+machine:
+
+```sh
+ssh user@server <<'EOF'
+cd /var/www && git pull
+systemctl restart nginx
+EOF
+```
+
+One SSH connection runs the whole deploy checklist, with no
+copy-pasting command by command. The same idea works with `sudo bash`
+and `docker exec -i`. Which marker quoting to use here is a gotcha of
+its own — more on that below.
+
+### Run a program without creating a file
+
+A heredoc is just standard input. Any command that reads stdin will
+take the block, so you can run a whole script that never touches disk:
+
+```sh
+python3 <<'EOF'
+for i in range(3):
+    print(f"line {i}")
+EOF
+```
+
+Python sees those lines exactly as if you had typed them into a REPL.
+
+## The gotchas
+
+### Quotes around the marker change everything
+
+This is the big one. Tiny quotes around the marker completely change
+what gets delivered.
 
 - `<<'EOF'` (quoted) — behaves like a committed `.env.example`. Every
   `$VARIABLE` stays a literal placeholder. The block is **data**.
 - `<<EOF` (unquoted) — behaves like a CI step that bakes real values
-  into the artifact at build time. Your shell fills in every
-  `$VARIABLE` first, then hands the finished block to the command. The
-  block is **code**.
+  into the artifact. Your shell fills in every `$VARIABLE` first, then
+  hands the finished block to the command. The block is **code**.
 
 Writing a config that contains real dollar signs? Quote the marker.
 Want to inject your current git tag into the block? Don't.
 
-## The escape hatch: one literal dollar sign
+The same rule applies over ssh. A quoted marker means `$(df -h)` runs
+**on the server**. An unquoted marker means your laptop fills it in
+before sending. Mixing those up is a classic "why is disk usage
+identical on every host" bug.
 
-Sometimes you want almost everything expanded, but one value must stay
-literal. A backslash saves just that one:
+### Escape one value with a backslash
+
+Sometimes you want almost everything expanded except one value. Put a
+backslash before it:
 
 ```sh
 cat <<EOF
@@ -61,68 +126,51 @@ backslash keeps exactly one `$(date +%F)` on paper instead of running
 it. Handy when a config snippet contains shell syntax that isn't meant
 for your shell.
 
-## Tool 1: write a file with zero middlemen
+### Don't forget the closing marker
 
-Most snippets online use `cat` to pipe the block into a file. The plot
-twist is that you don't need a command at all. The shell does
-redirection natively:
+If the marker never shows up on its own line, the shell waits forever,
+like a PR with no reviewer. The marker also has to sit at the very
+start of the line, which is why a nicely indented block breaks. The fix
+is the first pro tip below.
 
-```sh
->> ~/.zshrc <<'EOF'
-alias gpo='git push origin'
-alias ga='git add .'
-EOF
-```
+## Pro tips
 
-Why the command-free version wins:
+### Keep the block indented
 
-- **Nothing to hijack** — there's no `cat` for an alias to replace, not
-  even the one that's secretly `bat` (ask me how I know).
-- **One less process** — the shell opens the file and drops the block in.
-- **Fewer moving parts** — which means fewer things to debug at 2 a.m.
+Write `<<-EOF` instead of `<<EOF` and the shell strips leading **tabs**
+from the block. It only strips tabs, not spaces — spaces are ordinary
+characters to the shell, so an indent made of spaces still counts as
+content. Your heredoc can sit inside an indented function without
+dragging its closing marker along.
 
-## Tool 2: run your runbook in one shot
+### One value? Use a herestring
 
-Point the block at an interpreter instead of a file, and every line gets
-**executed**. It's the difference between a README that describes the
-steps and a script that actually performs them:
-
-```sh
-ssh user@server <<'EOF'
-cd /var/www && git pull
-systemctl restart nginx
-EOF
-```
-
-One SSH connection runs the whole deploy checklist, with none of the
-copy-paste roulette. It works with `sudo bash`, `docker exec -i`, even
-`python3`.
-
-The quoting rule pays double here. Quoted marker = `$(df -h)` runs **on
-the server**. Unquoted = your laptop fills it in before sending. Mixing
-those up is a classic "why is disk usage identical on every host" bug.
-
-## Tool 3: keep it indented
-
-Normally the closing marker must sit flush-left, which ruins your nicely
-indented function. Write `<<-EOF` and the shell strips leading **tabs**
-(tabs only — spaces don't count, because of course they don't).
-
-## Tool 4: the one-liner
-
-For a single value, skip the ceremony. Three arrows — a **herestring** —
-feed one string to a command. It's the `const` of shell input: one
-value, no block, and no marker to close:
+For a single line, skip the marker entirely. A **herestring** — three
+arrows — passes one string to a command:
 
 ```sh
 tr 'a-z' 'A-Z' <<< "hello world"
 ```
 
-## FAQ
+There's no block and no closing marker to manage. It's the short
+version of a heredoc.
 
-**What happens if I forget the closing marker?**
-The shell sits there waiting, like a PR with no reviewer. Type the
-marker on its own line and it snaps out of it.
+### Preview the block before you write it
+
+Run the block through `cat` first and you'll see exactly what the shell
+will deliver:
+
+```sh
+cat <<'EOF'
+config path: $HOME
+deploy host: $(hostname)
+EOF
+```
+
+Print it with the wrong quoting and the difference stares right at you.
+It's much cheaper to catch here than inside a config file.
+
+## FAQ
 
 **Quoted or unquoted — what's the safe default?**
 Quoted (`<<'EOF'`). Verbatim delivery never surprises you. Unquote only
