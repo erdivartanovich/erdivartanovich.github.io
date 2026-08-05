@@ -1,5 +1,5 @@
 ---
-title: "Erdiansyah"
+title: "Erdiansyah Arsyad"
 description: "Erdiansyah — DevOps & software architect. Purist tooling: plain, efficient, built to outlast trends — like the Ulfberht blade."
 ---
 Welcome — Assalamu alaikum — Amitabha — Svastyastu.
