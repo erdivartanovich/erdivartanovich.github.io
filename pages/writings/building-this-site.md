@@ -5,9 +5,9 @@ date: "2026-07-29"
 description: "How this site is built with pandoc, make, and a 30-line shell script — basic commands for both tools, and why the pair beats a framework."
 modified: "2026-08-05"
 related:
-  - url: /articles/heredocs-mental-model.html
+  - url: /writings/heredocs-mental-model.html
     title: "Shell heredocs: power, gotchas, and pro tips"
-  - url: /articles/bash-without-if.html
+  - url: /writings/bash-without-if.html
     title: "Most shell scripts don't need if"
 ---
 
@@ -149,7 +149,7 @@ That something is pandoc, and this is the actual command this site runs:
 ```sh
 pandoc post.md --template templates/main.html \
   --standalone --toc --toc-depth=3 \
-  --metadata-file=site.yaml --metadata-file=articles.yaml \
+  --metadata-file=site.yaml --metadata-file=writings.yaml \
   -o post.html
 ```
 
@@ -160,7 +160,7 @@ Two flags matter most:
 - `--standalone` — embed that shell and its metadata into the output, so
   each page is a self-contained file.
 
-`--toc` adds a table of contents to articles. `--metadata-file` loads
+`--toc` adds a table of contents to writings. `--metadata-file` loads
 site-wide settings from YAML, so no page hardcodes its own nav or URL.
 
 ## Step 2: a template, like a layout component
@@ -186,12 +186,12 @@ With many pages, who runs pandoc on each one? **make** — and this is
 where it earns its keep. One rule handles the entire folder:
 
 ```make
-$(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(ARTICLESMETA)
+$(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(WRITINGS_META)
 	@mkdir -p $(@D)
 	$(PANDOC) $< --template $(TEMPLATE) --standalone \
 	  --highlight-style=monochrome \
 	  $$(awk '/^---$$/{n++; if(n==2) exit} /^date:/{print "--toc --toc-depth=3"; exit}' $<) \
-	  --metadata-file=$(SITEMETA) --metadata-file=$(ARTICLESMETA) -o $@
+	  --metadata-file=$(SITEMETA) --metadata-file=$(WRITINGS_META) -o $@
 ```
 
 Here's what each piece does:
@@ -201,7 +201,7 @@ Here's what each piece does:
 - `$<` — the source (`page.md`). `$@` — the target (`page.html`). `$(@D)` —
   the target's directory. Make's shorthand for "the thing I'm building."
 - The `awk` line — if the page has a `date:` in its frontmatter, it's an
-  article, so add the table of contents. That's plain-text plumbing
+  writing, so add the table of contents. That's plain-text plumbing
   doing real work.
 - **Dependencies** after the colon include the template and both YAML
   files. Touch the template, and every page rebuilds — a dependency
@@ -218,9 +218,9 @@ Maintaining a "recent posts" list by hand survives about three posts.
 So a 30-line shell script does it at build time.
 
 The convention: any page with a `date:` in its frontmatter is a post.
-`gen-articles.sh` scrapes titles and dates with `awk`, sorts
-newest-first, and writes `articles.yaml`. Pandoc feeds that file back in
-as metadata, and the template's `$for(articles)$` loop prints the list.
+`gen-writings.sh` scrapes titles and dates with `awk`, sorts
+newest-first, and writes `writings.yaml`. Pandoc feeds that file back in
+as metadata, and the template's `$for(writings)$` loop prints the list.
 Add a post, rebuild — the homepage updates itself. There's no
 list-maintenance left to do.
 
@@ -234,7 +234,7 @@ Publishing is just: write markdown, `make`, push.
 ## Pro tips
 
 Full disclosure: this site was built in Neovim. I was an Emacs person
-for years — the org-mode days this article opened with — before moving
+for years — the org-mode days this writing opened with — before moving
 to Vim/Neovim for its simplicity. Both camps get a tip, because the
 whole machine is one Makefile. Your editor becomes the dev server.
 There's no daemon and no hot-reload agent — just a command.
@@ -287,7 +287,7 @@ and breaking changes. My entire "framework" is two packages from the
 distro repo.
 
 **How do I actually add a post?**
-Write a markdown file in `pages/articles/` with a `date:` in the
+Write a markdown file in `pages/writings/` with a `date:` in the
 frontmatter, run `make`, push. The script picks it up, and the homepage,
 feed, and sitemap update themselves. If a post doesn't show up, check
 the `date:` — without it, the post never makes the list.

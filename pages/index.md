@@ -5,7 +5,7 @@ description: "Erdiansyah — DevOps & software architect. Purist tooling: plain,
 Welcome — Assalamu alaikum — Amitabha — Svastyastu.
 
 I am a DevOps & software architect specialist with over 18 years of
-experience. I write [articles](/articles.html) about shell scripting,
+experience. I [write](/writings.html) about shell scripting,
 infrastructure, and the tools that help transform ideas into working software.
 
 This site also serves as a [portfolio](/portfolio.html), and you can find more
@@ -56,8 +56,8 @@ over showmanship, patience over brilliance.**
 
 Boring can win championships. Boring doesn't fail at 3 a.m. I'll take boring.
 
-See [how this site is built](/articles/building-this-site.html) — markdown,
-pandoc, make, nothing more. The [articles](/articles.html) show the thinking
+See [how this site is built](/writings/building-this-site.html) — markdown,
+pandoc, make, nothing more. The [writings](/writings.html) show the thinking
 behind the machine.
 
 Finally — thank you for visiting. On that note, a word from Cicero:

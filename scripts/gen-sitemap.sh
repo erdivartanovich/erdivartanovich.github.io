@@ -1,5 +1,5 @@
 #!/bin/sh
-# Generate sitemap.xml from pages/*.md and pages/articles/*.md
+# Generate sitemap.xml from pages/*.md and pages/writings/*.md
 # (404 excluded; index maps to /).
 # lastmod = date of last commit touching the source file (git), falling
 # back to frontmatter date: when not in a repo. Needs full history
@@ -22,7 +22,7 @@ lastmod() {
 {
   printf '<?xml version="1.0" encoding="UTF-8"?>\n'
   printf '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-  for f in pages/*.md pages/articles/*.md; do
+  for f in pages/*.md pages/writings/*.md; do
     rel=${f#pages/}
     rel=${rel%.md}
     [ "$rel" = "404" ] && continue

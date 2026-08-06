@@ -19,7 +19,7 @@ $endif$
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 $if(siteurl)$
     <link rel="canonical" href="$siteurl$/$pageurl$" />
-    <link rel="alternate" type="application/atom+xml" title="Articles" href="$siteurl$/feed.xml" />
+    <link rel="alternate" type="application/atom+xml" title="Writings" href="$siteurl$/feed.xml" />
     <meta property="og:url" content="$siteurl$/$pageurl$" />
 $endif$
     <meta property="og:type" content="$if(date-meta)$article$else$website$endif$" />
@@ -128,11 +128,11 @@ $endfor$
     </section>
 $endif$
 $endif$
-$if(show-articles)$
-    <section class="article-list">
+$if(show-writings)$
+    <section class="writing-list">
       <ul>
-$for(articles)$
-        <li><span class="article-date">$articles.date$</span> <a href="$articles.url$">$articles.title$</a></li>
+$for(writings)$
+        <li><span class="writing-date">$writings.date$</span> <a href="$writings.url$">$writings.title$</a></li>
 $endfor$
       </ul>
     </section>

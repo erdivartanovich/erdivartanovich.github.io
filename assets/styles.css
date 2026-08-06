@@ -319,12 +319,12 @@ mark {
   color: var(--text);
 }
 
-.article-list ul {
+.writing-list ul {
   list-style: none;
   padding-left: 0;
 }
 
-.article-list li {
+.writing-list li {
   margin-bottom: 0.55rem;
 }
 
@@ -383,7 +383,7 @@ mark {
   opacity: 1;
 }
 
-.article-date {
+.writing-date {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   margin-right: 0.6rem;
@@ -392,6 +392,7 @@ mark {
 .site-footer {
   margin-top: 3rem;
   padding-top: 1rem;
+  padding-bottom: 1rem;
   border-top: 1px solid var(--border-muted);
   font-size: 0.78rem;
   color: var(--text-muted);
@@ -401,10 +402,6 @@ mark {
 .site-footer p {
   margin: 0;
 }
-
-/* .site-footer a { */
-/*   color: var(--text-muted); */
-/* } */
 
 /* TOC: inline box by default; on wide screens the page becomes a grid
    (18rem rail + content, one 68rem composition) and the TOC is a sticky

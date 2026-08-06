@@ -5,9 +5,9 @@ date: "2026-07-14"
 description: "Heredocs write files, run commands over ssh, and feed any interpreter — but quotes around the marker can trip you up. The power, the gotchas, and the pro tips."
 modified: "2026-08-05"
 related:
-  - url: /articles/when-cat-is-not-cat.html
+  - url: /writings/when-cat-is-not-cat.html
     title: "When cat isn't cat: an alias that corrupts your files"
-  - url: /articles/bash-without-if.html
+  - url: /writings/bash-without-if.html
     title: "Most shell scripts don't need if"
 ---
 
@@ -53,7 +53,7 @@ Why this version wins:
 
 - **Nothing to hijack** — there's no command for an alias to swap in.
   A `cat` aliased to `bat` will corrupt a config file written this way —
-  see [When cat isn't cat](/articles/when-cat-is-not-cat.html).
+  see [When cat isn't cat](/writings/when-cat-is-not-cat.html).
 - **One less process** — the shell opens the file and drops the block in.
 - **Fewer moving parts** — which means fewer things to debug at 2 a.m.
 

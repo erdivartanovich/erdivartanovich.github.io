@@ -12,5 +12,5 @@ navigation:
     url: "/about.html"
   - label: "Portfolio"
     url: "/portfolio.html"
-  - label: "Articles"
-    url: "/articles.html"
+  - label: "Writings"
+    url: "/writings.html"

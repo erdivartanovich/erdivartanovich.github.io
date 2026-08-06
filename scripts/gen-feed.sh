@@ -16,7 +16,7 @@ fm() { # fm <key> <file> — frontmatter value, quotes stripped
 tmp=$(mktemp)
 trap 'rm -f "$tmp"' EXIT
 
-for f in pages/articles/*.md; do
+for f in pages/writings/*.md; do
   date=$(fm date "$f")
   [ -n "$date" ] || continue
   printf '%s\t%s\n' "$date" "$f"
@@ -37,7 +37,7 @@ latest=$(head -1 "$tmp" | cut -f1)
     slug=$(basename "$f" .md)
     title=$(fm title "$f")
     desc=$(fm description "$f")
-    url="$siteurl/articles/$slug.html"
+    url="$siteurl/writings/$slug.html"
     printf '  <entry>\n'
     printf '    <title>%s</title>\n' "$(esc "$title")"
     printf '    <link href="%s"/>\n' "$url"

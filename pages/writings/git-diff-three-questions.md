@@ -5,7 +5,7 @@ date: "2026-07-16"
 description: "git diff always compares two of three snapshots — working tree, staging, HEAD. Know which question you're asking."
 modified: "2026-08-05"
 related:
-  - url: /articles/building-this-site.html
+  - url: /writings/building-this-site.html
     title: "Building this site: pandoc, make, and nothing else"
 ---
 

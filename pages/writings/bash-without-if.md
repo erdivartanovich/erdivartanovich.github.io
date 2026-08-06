@@ -5,9 +5,9 @@ date: "2026-07-18"
 description: "Guard clauses with && and || make shell scripts flatter and more readable than nested if blocks."
 modified: "2026-08-05"
 related:
-  - url: /articles/heredocs-mental-model.html
+  - url: /writings/heredocs-mental-model.html
     title: "Shell heredocs: power, gotchas, and pro tips"
-  - url: /articles/when-cat-is-not-cat.html
+  - url: /writings/when-cat-is-not-cat.html
     title: "When cat isn't cat: an alias that corrupts your files"
 ---
 
