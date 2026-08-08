@@ -4,9 +4,9 @@ description: "Erdiansyah — DevOps & software architect. Purist tooling: plain,
 ---
 Welcome — Assalamu alaikum — Amitabha — Svastyastu.
 
-I am a DevOps & software architect specialist with over 18 years of
-experience. I [write](/writings.html) about shell scripting,
-infrastructure, and the tools that help transform ideas into working software.
+I am a software architect and DevOps specialist with over 18 years of
+experience. I build systems and [write](/writings.html) about shell scripting
+and infrastructure — the tools that turn ideas into software that ships.
 
 This site also serves as a [portfolio](/portfolio.html), and you can find more
 details about me on the [about](/about.html) page.
