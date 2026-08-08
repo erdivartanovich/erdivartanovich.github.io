@@ -8,9 +8,9 @@ css:
 navigation:
   - label: "Home"
     url: "/"
+  - label: "Writings"
+    url: "/writings.html"
   - label: "About"
     url: "/about.html"
   - label: "Portfolio"
     url: "/portfolio.html"
-  - label: "Writings"
-    url: "/writings.html"
