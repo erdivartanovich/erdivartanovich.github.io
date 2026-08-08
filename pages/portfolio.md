@@ -14,10 +14,42 @@ the pipelines that ship and run them.
 - **Top 100 Global / Top 3 Indonesia** in Code Quality Ranking for
   **JavaScript** (DueRank, Nov 2018) —
   [duerank.com/profile/13470318](https://duerank.com/profile/13470318)
-- Open-source contributor:
-  [polybar-themes](https://github.com/adi1090x/polybar-themes) (4.9K★ Linux
-  WM utility),
-  [t-smart-tmux-session-manager](https://github.com/joshmedeski/t-smart-tmux-session-manager)
+
+## Open source contributions
+
+### Neovim — one of the most popular code editors, used by ~14% of developers with 100k+ stars on GitHub
+
+- Fix bug in the Neovim cwd module: local working directory (`:bcd`) lost
+  when switching buffers with `nvim_win_set_buf` or opening windows with
+  `nvim_open_win` — [PR #41218](https://github.com/neovim/neovim/pull/41218)
+- Fix bug in the Neovim dir.lua module: directory listing buffer closed
+  when the initial listing fails — [PR #41112](https://github.com/neovim/neovim/pull/41112)
+- Fix bug in the Neovim UI2 module: editor steals focus when consecutive
+  commands emit messages — [PR #41062](https://github.com/neovim/neovim/pull/41062)
+- Port the netrw E471 fix from Vim into Neovim as an upstream patch —
+  [PR #40911](https://github.com/neovim/neovim/pull/40911)
+
+### Vim — one of the most popular code editors, used by ~24% of developers with 40k+ stars on GitHub
+
+- Fix bug in the Vim netrw plugin: E471 error when opening a file after
+  the file explorer sidebar was closed —
+  [PR #20741](https://github.com/vim/vim/pull/20741)
+
+### Polybar themes — popular Linux desktop bar theme collection with 6k+ stars on GitHub
+
+- Fix bug in the rofi powermenu script: menu displays wrong when a rofi
+  config exists on the host; added the `-no-config` option across all
+  themes — [PR #122](https://github.com/adi1090x/polybar-themes/pull/122)
+
+### t-smart-tmux-session-manager — smart Tmux session manager plugin with 350+ stars on GitHub
+
+- Add feature: custom border label for the fzf/tmux popup, also works in
+  serverless and detach mode —
+  [PR #60](https://github.com/joshmedeski/t-smart-tmux-session-manager/pull/60)
+
+### shadcn/ui — one of the most popular React component libraries with 120k+ stars on GitHub
+
+- Fix the Astro dark-mode docs — [PR #4491](https://github.com/shadcn-ui/ui/pull/4491)
 
 ## Experience
 
