@@ -26,6 +26,8 @@ $(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(WRITINGS_META)
 	  $$(awk '/^---$$/{n++; if(n==2) exit} /^date:/{printf "--toc --toc-depth=3"; exit}' $<) \
 	  -M pageurl="$(if $(filter index,$*),,$*.html)" \
 	  --metadata-file=$(SITEMETA) --metadata-file=$(WRITINGS_META) -o $@
+	@active="$(if $(filter index,$*),/,/$(firstword $(subst /, ,$*)).html)"; \
+	sed -i "s|<a href=\"$$active\">|<a class=\"active\" href=\"$$active\">|" $@
 
 $(REDIRECT_HTML) $(LEGACY_HTML): | $(OUT)
 	@mkdir -p $(@D)

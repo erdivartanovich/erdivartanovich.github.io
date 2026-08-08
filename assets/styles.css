@@ -98,6 +98,11 @@ a:hover {
   color: var(--text-muted);
 }
 
+.site-nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
 .site-nav a:hover {
   color: var(--accent);
   text-decoration: none;
