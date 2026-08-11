@@ -1,6 +1,6 @@
 ---
-title: "Erdiansyah Arsyad"
-description: "Erdiansyah — DevOps & software architect. Purist tooling: plain, efficient, built to outlast trends — like the Ulfberht blade."
+title: "Erdiansyah Arsyad's Manuscript"
+description: "Erdiansyah — DevOps & software architect. Build efficient systems, built to outlast trends — like the Ulfberht blade."
 ---
 Welcome — Assalamu alaikum — Amitabha — Svastyastu.
 
