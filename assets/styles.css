@@ -87,7 +87,7 @@ a:hover {
    in the steel rather than on top of it. */
 .masthead-wordmark {
   display: block;
-  width: min(34rem, 100%);
+  width: min(27rem, 100%);
   height: auto;
   margin: 0 auto;
   transform: translateY(1rem);
@@ -97,8 +97,7 @@ a:hover {
 
 /* Stroked in its own fill so a glyph's separate quads close into one mass. */
 .masthead-wordmark use {
-  stroke-width: 2;
-  stroke-linejoin: round;
+  stroke-width: 1.5;
 }
 
 /* Offset copies form the groove: shadowed upper lip, lit lower lip. */
@@ -575,7 +574,7 @@ nav#TOC a:hover {
   }
 
   .masthead-wordmark {
-    width: min(27rem, 100%);
+    width: min(21rem, 100%);
     transform: translateY(0.75rem);
   }
 
