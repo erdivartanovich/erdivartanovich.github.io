@@ -179,6 +179,11 @@ arrows — passes one string to a command:
 tr 'a-z' 'A-Z' <<< "hello world"
 ```
 
+::: margin
+Nota bene — `<<<` is bash, zsh and ksh only. It never made POSIX, so a
+`#!/bin/sh` script on Debian, where `sh` is dash, will reject it.
+:::
+
 There's no block and no closing marker to manage. It's the short
 version of a heredoc.
 

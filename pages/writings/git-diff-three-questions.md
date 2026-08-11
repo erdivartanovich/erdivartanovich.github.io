@@ -42,6 +42,11 @@ on how you call it:
 | `git diff --staged` | index vs HEAD | what's **in the cart** |
 | `git diff HEAD` | working tree vs HEAD | **everything** since last commit |
 
+::: margin
+`--staged` and `--cached` are the same flag. `--cached` came first; `--staged`
+arrived later because nobody could remember what the cache was.
+:::
+
 ## The gotcha, explained
 
 A fully staged file shows **nothing** in plain `git diff`, because your

@@ -76,6 +76,13 @@ long. The getting-started page covers 90% of daily use, and it's short.
 solved the original build problem in 1976, and nothing since has done it
 better. *Only rebuild what changed.*
 
+::: margin
+Make's recipes must be indented with a literal tab, never spaces. Stuart
+Feldman knew it was a mistake almost immediately — but he already had about a
+dozen users and didn't want to break them. Fifty years on, everyone still pays
+that tab.
+:::
+
 You give make a **Makefile** — a recipe of targets. Each target lists
 what it needs (**dependencies**) and the commands that build it
 (**recipe**):

@@ -26,6 +26,11 @@ shell's version of a CI build status. Zero means success; anything else
 means failure. Your CI pipeline lives and dies by this number, and so
 can your scripts.
 
+::: margin
+Nota bene — an exit code is one byte. `exit 256` arrives as `0`, so a script
+that returns a count will eventually report success by accident.
+:::
+
 - `&&` — "**and then**": run the next command only if the last one passed.
 - `||` — "**or else**": run the next command only if the last one failed.
 

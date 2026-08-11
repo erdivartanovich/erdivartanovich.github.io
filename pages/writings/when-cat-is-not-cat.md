@@ -71,6 +71,11 @@ command cat file   # skip aliases and functions
 /bin/cat file      # full path, zero ambiguity
 ```
 
+::: margin
+The backslash works because alias expansion only fires on a bare, unquoted
+first word. `\cat`, `'cat'` and `"cat"` all slip past it.
+:::
+
 Not sure what a name really runs? `type cat` will rat out your alias.
 Run plain `alias` and you'll see every nickname your shell has loaded.
 It's a code review for your shell: it shows you what actually executes,
