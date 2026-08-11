@@ -31,11 +31,13 @@
   --blade-filter: none;
   --blade-blend: multiply;
 
-  --etch-face-top: #3a2b1d;
-  --etch-face-mid: #241a12;
-  --etch-face-low: #4b3826;
-  --etch-shadow: rgba(38, 26, 16, 0.35);
-  --etch-hilite: rgba(255, 255, 255, 0.85);
+  --etch-face-top: #5a4130;
+  --etch-face-mid: #3f2c1e;
+  --etch-face-low: #6b4e35;
+  --etch-shadow: rgba(38, 26, 16, 0.28);
+  --etch-hilite: rgba(255, 255, 255, 0.7);
+  --etch-blend: multiply;
+  --etch-opacity: 0.9;
 
   --danger: #b51e10;
   --warning: #8a4e00;
@@ -73,11 +75,13 @@
     --blade-filter: invert(1) brightness(0.6) contrast(1.15) sepia(0.6) hue-rotate(-10deg);
     --blade-blend: screen;
 
-    --etch-face-top: #c3b3a0;
-    --etch-face-mid: #90806b;
-    --etch-face-low: #5c5040;
-    --etch-shadow: rgba(0, 0, 0, 0.85);
-    --etch-hilite: rgba(255, 240, 220, 0.22);
+    --etch-face-top: #a87a4c;
+    --etch-face-mid: #8a5f38;
+    --etch-face-low: #64432a;
+    --etch-shadow: rgba(0, 0, 0, 0.45);
+    --etch-hilite: rgba(255, 214, 168, 0.16);
+    --etch-blend: hard-light;
+    --etch-opacity: 0.85;
 
     --danger: #c9564a;
     --warning: #b85000;

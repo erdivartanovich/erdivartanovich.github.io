@@ -83,12 +83,16 @@ a:hover {
   background: linear-gradient(to bottom, var(--veil), var(--panel) 110%);
 }
 
+/* Blending lets the blade's pitting read through the letters, so the mark sits
+   in the steel rather than on top of it. */
 .masthead-wordmark {
   display: block;
   width: min(34rem, 100%);
   height: auto;
   margin: 0 auto;
   transform: translateY(1rem);
+  mix-blend-mode: var(--etch-blend);
+  opacity: var(--etch-opacity);
 }
 
 /* Stroked in its own fill so a glyph's separate quads close into one mass. */
