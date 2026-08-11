@@ -1,12 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-label="Gotchas">
-  <rect width="800" height="220" rx="12" fill="#1e1a15"/>
-  <rect x="1" y="1" width="798" height="218" rx="11" fill="none" stroke="#323131" stroke-width="2"/>
-  <rect x="0" y="208" width="800" height="12" fill="#c9564a" opacity="0.9"/>
   <g transform="translate(110,110)">
-    <path d="M0,-52 L52,44 L-52,44 Z" fill="none" stroke="#c9564a" stroke-width="9" stroke-linejoin="round"/>
-    <rect x="-5" y="-22" width="10" height="34" rx="5" fill="#c9564a"/>
-    <circle cx="0" cy="28" r="6" fill="#c9564a"/>
+    <path d="M0,-52 L52,44 L-52,44 Z" fill="none" stroke="#4a3524" stroke-width="9" stroke-linejoin="round"/>
+    <rect x="-5" y="-22" width="10" height="34" rx="5" fill="#4a3524"/>
+    <circle cx="0" cy="28" r="6" fill="#4a3524"/>
   </g>
-  <text x="210" y="103" font-family="system-ui,sans-serif" font-size="46" font-weight="700" fill="#e8e8e8">Gotchas</text>
-  <text x="210" y="145" font-family="system-ui,sans-serif" font-size="21" fill="#989796">sharp edges, found the hard way</text>
+  <text x="210" y="103" font-family="Iowan Old Style,Palatino,Georgia,serif" font-size="46" font-weight="700" fill="#4a3524">Gotchas</text>
+  <text x="210" y="145" font-family="Iowan Old Style,Palatino,Georgia,serif" font-size="21" fill="#6d5a44">sharp edges, found the hard way</text>
 </svg>
