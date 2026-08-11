@@ -32,6 +32,13 @@
   --rule: rgba(122, 92, 46, 0.13);
   --initial-bg: rgba(196, 160, 96, 0.16);
   --media-filter: none;
+  --nav-steel-top: #8c7a63;
+  --nav-steel-low: #33271b;
+  --nav-steel-hot-top: #c2661f;
+  --nav-steel-hot-low: #7d3a10;
+  --nav-emboss-hi: rgba(255, 250, 236, 0.9);
+  --nav-emboss-lo: rgba(58, 38, 18, 0.4);
+
   --stain-blend: multiply;
   --stain-filter: none;
   --peel: rgba(255, 253, 244, 0.6);
@@ -84,6 +91,13 @@
     --rule: rgba(226, 200, 156, 0.055);
     --initial-bg: rgba(199, 105, 48, 0.12);
     --media-filter: invert(1) sepia(0.5) hue-rotate(-12deg) saturate(1.4);
+    --nav-steel-top: #c4b49c;
+    --nav-steel-low: #625139;
+    --nav-steel-hot-top: #e2933f;
+    --nav-steel-hot-low: #9d521a;
+    --nav-emboss-hi: rgba(255, 231, 197, 0.24);
+    --nav-emboss-lo: rgba(0, 0, 0, 0.8);
+
     --stain-blend: screen;
     --stain-filter: invert(1) sepia(1) hue-rotate(-35deg) saturate(2.6)
       brightness(1.1);

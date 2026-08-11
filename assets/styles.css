@@ -196,17 +196,39 @@ a:hover {
   letter-spacing: 0;
 }
 
+/* Nav items are cut from the same rusted steel as the blade: the gradient is
+   clipped to the glyphs, so the labels take a metal face rather than a flat
+   colour. */
 .site-nav a {
-  color: var(--text-muted);
+  background-image: linear-gradient(
+    to bottom,
+    var(--nav-steel-top),
+    var(--nav-steel-low)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
+/* The current page is struck into the surface: lit along the top edge,
+   shadowed along the bottom. */
 .site-nav a.active {
-  color: var(--accent);
+  background-image: linear-gradient(
+    to bottom,
+    var(--nav-steel-hot-top),
+    var(--nav-steel-hot-low)
+  );
   font-weight: 600;
+  filter: drop-shadow(0 -1px 0 var(--nav-emboss-hi))
+    drop-shadow(0 1px 0 var(--nav-emboss-lo));
 }
 
 .site-nav a:hover {
-  color: var(--accent);
+  background-image: linear-gradient(
+    to bottom,
+    var(--nav-steel-hot-top),
+    var(--nav-steel-hot-low)
+  );
   text-decoration: none;
 }
 
