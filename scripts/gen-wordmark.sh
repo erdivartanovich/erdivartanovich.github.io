@@ -42,7 +42,7 @@ glyph() {
   x) printf '76\tM 4 1 L 19 4 L 70 96 L 55 100 Z M 55 1 L 70 4 L 19 100 L 5 96 Z' ;;
   y) printf '74\tM 4 1 L 19 4 L 42 52 L 29 58 Z M 55 4 L 70 1 L 45 55 L 32 50 Z M 29 48 L 46 50 L 44 99 L 27 97 Z' ;;
   z) printf '74\tM 4 1 L 68 4 L 67 17 L 3 14 Z M 54 3 L 68 8 L 18 96 L 5 90 Z M 4 86 L 69 88 L 68 100 L 3 99 Z' ;;
-  +) printf '70\tM 41 9 L 56 15 L 29 90 L 14 85 Z M 7 31 L 69 54 L 63 69 L 1 46 Z' ;;
+  +) printf '68\tM 57 14 L 39 53 L 13 86 L 31 47 Z M 4 31 L 38 46 L 66 69 L 32 54 Z' ;;
   -) printf '50\tM 4 46 L 46 48 L 45 60 L 3 58 Z' ;;
   .) printf '34\tM 8 84 L 24 86 L 23 100 L 7 98 Z' ;;
   ' ') printf '34\t' ;;
