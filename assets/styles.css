@@ -518,14 +518,15 @@ nav#TOC a:hover {
     grid-template-rows: auto auto auto 1fr auto;
     max-width: 68rem;
     padding: 0;
-    /* full-height rail divider, independent of the TOC's own height */
-    background: linear-gradient(
-      to right,
-      var(--panel) calc(18rem - 1px),
-      var(--border-strong) calc(18rem - 1px),
-      var(--border-strong) 18rem,
-      var(--panel) 18rem
-    );
+  }
+
+  /* Divider as its own grid item: full height regardless of the TOC's, and it
+     leaves the body background free for the page surface. */
+  body:has(nav#TOC)::after {
+    content: "";
+    grid-column: 1;
+    grid-row: 2 / -1;
+    border-right: 1px solid var(--border-strong);
   }
 
   body:has(nav#TOC) .masthead {
