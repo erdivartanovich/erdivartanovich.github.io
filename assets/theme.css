@@ -3,11 +3,11 @@
    same hues for a light-surface variant. */
 
 :root {
-  --bg: #f3efe9;
-  --panel: #ffffff;
-  --surface: #eee6dc;
-  --surface-1: #f8f3ee;
-  --code-bg: #faf6f2;
+  --bg: #ded0b4;
+  --panel: #f4ead4;
+  --surface: #e9dcbe;
+  --surface-1: #f0e6cd;
+  --code-bg: #ece0c4;
 
   --text: #3d3123;
   --text-muted: #7b6d5d;
@@ -20,14 +20,15 @@
   --accent-muted: #96684a;
   --secondary: #7d5c34;
 
-  --border: #e2d7cb;
-  --border-muted: #ece4db;
-  --border-strong: #cdbfae;
+  --border: #dccdaa;
+  --border-muted: #e5d9bd;
+  --border-strong: #bfa982;
 
   --selection-bg: #9c4e1d;
   --selection-fg: #ffffff;
-  --mark-bg: #eedccf;
+  --mark-bg: #ecd9a8;
   --veil: rgba(255, 255, 255, 0.34);
+  --parchment-blend: hard-light;
   --blade-filter: none;
   --blade-blend: multiply;
 
@@ -47,11 +48,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #100c07;
-    --panel: #1e1a15;
-    --surface: #242321;
-    --surface-1: #31302e;
-    --code-bg: #100c07;
+    --bg: #0d0a06;
+    --panel: #241d14;
+    --surface: #2d2519;
+    --surface-1: #383022;
+    --code-bg: #17120b;
 
     --text: #c3c2c1;
     --text-muted: #989796;
@@ -64,14 +65,15 @@
     --accent-muted: #b08063;
     --secondary: #aa8b67;
 
-    --border: #171615;
-    --border-muted: #141312;
-    --border-strong: #323131;
+    --border: #1d1710;
+    --border-muted: #18130c;
+    --border-strong: #3d3325;
 
     --selection-bg: #c76930;
     --selection-fg: #1e1a15;
     --mark-bg: #744438;
     --veil: rgba(30, 26, 21, 0.30);
+    --parchment-blend: hard-light;
     --blade-filter: invert(1) brightness(0.6) contrast(1.15) sepia(0.6) hue-rotate(-10deg);
     --blade-blend: screen;
 

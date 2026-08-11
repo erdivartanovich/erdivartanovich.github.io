@@ -17,7 +17,8 @@ body {
   max-width: 50rem;
   margin: 0 auto;
   padding: 0 2rem 4.5rem;
-  background: var(--panel);
+  background: url("/parchment.svg") repeat, var(--panel);
+  background-blend-mode: var(--parchment-blend);
   color: var(--text);
   border-left: 1px solid var(--border-strong);
   border-right: 1px solid var(--border-strong);
