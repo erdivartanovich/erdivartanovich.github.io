@@ -454,6 +454,7 @@ img {
    an image-only banner paragraph. */
 main > p:first-of-type:not(:has(img))::first-letter,
 main > p:first-of-type:has(img) + p::first-letter {
+  margin-right: 0.10em;
   padding: 0.14em 0.18em 0.06em;
   border: 1px solid var(--accent-muted);
   background: var(--initial-bg);
