@@ -60,6 +60,8 @@ See [how this site is built](/writings/building-this-site.html) — markdown,
 pandoc, make, nothing more. The [writings](/writings.html) show the thinking
 behind the machine.
 
+---
+
 Finally — thank you for visiting. On that note, a word from Cicero:
 
 ::: {.pull-quote}
