@@ -19,15 +19,9 @@ body {
   padding: 0 2rem 4.5rem;
   position: relative;
   isolation: isolate;
-  /* Grain, and a lifted corner at the foot of the sheet. */
+  /* Grain, and a torn corner at the foot of the sheet. */
   background:
-    linear-gradient(
-      315deg,
-      var(--peel) 0 1.3rem,
-      var(--peel-edge) 1.3rem 1.45rem,
-      transparent 1.45rem
-    )
-    no-repeat,
+    url("/torn-corner.svg") no-repeat,
     url("/parchment.svg") repeat,
     var(--panel);
   background-position:
@@ -35,10 +29,10 @@ body {
     0 0,
     0 0;
   background-size:
-    3.2rem 3.2rem,
+    4rem 4rem,
     auto,
     auto;
-  background-blend-mode: normal, var(--parchment-blend), normal;
+  background-blend-mode: hard-light, var(--parchment-blend), normal;
   color: var(--text);
   border-left: 1px solid var(--border-strong);
   border-right: 1px solid var(--border-strong);
