@@ -76,25 +76,24 @@ $for(include-before)$
 $endfor$
 $if(title-prefix)$
     <a class="masthead" href="/" aria-label="$title-prefix$ — home">
-      <svg class="masthead-wordmark" viewBox="0 0 1000 96" role="img" aria-label="$title-prefix$">
+      <svg class="masthead-wordmark" viewBox="$wordmark-viewbox$" role="img" aria-label="$title-prefix$">
         <defs>
           <linearGradient id="mw-metal" x1="0" y1="0" x2="0" y2="1">
             <stop class="mw-metal-top" offset="0" />
             <stop class="mw-metal-mid" offset="0.52" />
             <stop class="mw-metal-low" offset="1" />
           </linearGradient>
-          <!-- Displaces the letter edges so the cut reads hand-struck, not typeset. -->
-          <filter id="mw-chisel" x="-4%" y="-60%" width="108%" height="220%" color-interpolation-filters="sRGB">
-            <feTurbulence type="fractalNoise" baseFrequency="0.11 0.07" numOctaves="2" seed="9" result="mw-grain" />
-            <feDisplacementMap in="SourceGraphic" in2="mw-grain" scale="6.5" xChannelSelector="R" yChannelSelector="G" />
+          <filter id="mw-chisel" x="-3%" y="-40%" width="106%" height="180%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.03 0.02" numOctaves="2" seed="9" result="mw-grain" />
+            <feDisplacementMap in="SourceGraphic" in2="mw-grain" scale="7" xChannelSelector="R" yChannelSelector="G" />
           </filter>
+          $wordmark-defs$
+          <g id="mw-word">$wordmark-uses$</g>
         </defs>
         <g filter="url(#mw-chisel)">
-          <text class="masthead-etch-shadow" x="500" y="64.5" text-anchor="middle" textLength="840" lengthAdjust="spacing" rotate="-2 1.5 -1 2 -1.5 1 -2 1 2 -1 1.5 -2 1 -1 2">$title-prefix$</text>
-          <text class="masthead-etch-hilite" x="500" y="71.5" text-anchor="middle" textLength="840" lengthAdjust="spacing" rotate="-2 1.5 -1 2 -1.5 1 -2 1 2 -1 1.5 -2 1 -1 2">$title-prefix$</text>
-          <text class="masthead-etch-face" x="500" y="68" text-anchor="middle" textLength="840" lengthAdjust="spacing" rotate="-2 1.5 -1 2 -1.5 1 -2 1 2 -1 1.5 -2 1 -1 2">$title-prefix$</text>
-          <text class="masthead-etch-cross" x="8" y="68" aria-hidden="true">+</text>
-          <text class="masthead-etch-cross" x="992" y="68" text-anchor="end" aria-hidden="true">+</text>
+          <use class="masthead-etch-shadow" href="#mw-word" y="-5" />
+          <use class="masthead-etch-hilite" href="#mw-word" y="5" />
+          <use class="masthead-etch-face" href="#mw-word" />
         </g>
       </svg>
     </a>

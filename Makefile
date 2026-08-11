@@ -2,6 +2,7 @@ PANDOC       = pandoc
 TEMPLATE     = templates/main.html
 SITEMETA     = site.yaml
 WRITINGS_META = writings.yaml
+WORDMARK_META = wordmark.yaml
 OUT          = dist
 
 PAGES  = $(wildcard pages/*.md) $(wildcard pages/writings/*.md)
@@ -19,13 +20,17 @@ all: $(HTML) $(ASSETS) $(REDIRECT_HTML) $(LEGACY_HTML) $(OUT)/articles.html $(OU
 $(WRITINGS_META): $(PAGES) scripts/gen-writings.sh
 	sh scripts/gen-writings.sh $@
 
+$(WORDMARK_META): $(SITEMETA) scripts/gen-wordmark.sh
+	sh scripts/gen-wordmark.sh $@
+
 # Pages with a date: in frontmatter (= writings) also get a table of contents.
-$(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(WRITINGS_META)
+$(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(WRITINGS_META) $(WORDMARK_META)
 	@mkdir -p $(@D)
 	$(PANDOC) $< --template $(TEMPLATE) --standalone --highlight-style=monochrome \
 	  $$(awk '/^---$$/{n++; if(n==2) exit} /^date:/{printf "--toc --toc-depth=3"; exit}' $<) \
 	  -M pageurl="$(if $(filter index,$*),,$*.html)" \
-	  --metadata-file=$(SITEMETA) --metadata-file=$(WRITINGS_META) -o $@
+	  --metadata-file=$(SITEMETA) --metadata-file=$(WRITINGS_META) \
+	  --metadata-file=$(WORDMARK_META) -o $@
 	@active="$(if $(filter index,$*),/,/$(firstword $(subst /, ,$*)).html)"; \
 	sed -i "s|<a href=\"$$active\">|<a class=\"active\" href=\"$$active\">|" $@
 
@@ -50,6 +55,6 @@ $(OUT):
 	mkdir -p $(OUT)
 
 clean:
-	rm -rf $(OUT) $(WRITINGS_META)
+	rm -rf $(OUT) $(WRITINGS_META) $(WORDMARK_META)
 
 .PHONY: all clean
