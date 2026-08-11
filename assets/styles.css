@@ -221,18 +221,6 @@ h1.title {
   padding-bottom: 0;
 }
 
-/* Illuminated initial. */
-h1.title::first-letter {
-  float: left;
-  margin: 0.04em 0.5rem 0 0;
-  padding: 0.1em 0.16em 0.04em;
-  border: 1px solid var(--accent-muted);
-  background: var(--initial-bg);
-  color: var(--accent);
-  font-size: 1.75em;
-  line-height: 0.88;
-}
-
 /* Left-aligned break under the title: ornament, then a rule that fades out. */
 h1.title::after {
   content: "\2726";
@@ -458,6 +446,21 @@ hr::after {
 
 img {
   max-width: 100%;
+}
+
+/* Illuminated initial. Unfloated, so it sits on the first line's baseline and
+   the line box grows to hold it — the paragraph resumes under the box rather
+   than wrapping around its side. Second selector covers pages that open with
+   an image-only banner paragraph. */
+main > p:first-of-type:not(:has(img))::first-letter,
+main > p:first-of-type:has(img) + p::first-letter {
+  padding: 0.14em 0.18em 0.06em;
+  border: 1px solid var(--accent-muted);
+  background: var(--initial-bg);
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 2.6em;
+  line-height: 1.5;
 }
 
 /* Content media: figures, self-hosted video, remote embeds. */
