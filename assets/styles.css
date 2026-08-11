@@ -87,10 +87,10 @@ a:hover {
    in the steel rather than on top of it. */
 .masthead-wordmark {
   display: block;
-  width: min(27rem, 100%);
+  width: min(22rem, 100%);
   height: auto;
   margin: 0 auto;
-  transform: translateY(1rem);
+  transform: translateY(0.5rem);
   mix-blend-mode: var(--etch-blend);
   opacity: var(--etch-opacity);
 }

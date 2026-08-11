@@ -31,9 +31,9 @@
   --blade-filter: none;
   --blade-blend: multiply;
 
-  --etch-face-top: #5a4130;
-  --etch-face-mid: #3f2c1e;
-  --etch-face-low: #6b4e35;
+  --etch-face-top: #c7a29f;
+  --etch-face-mid: #ad6a39;
+  --etch-face-low: #77604d;
   --etch-shadow: rgba(38, 26, 16, 0.28);
   --etch-hilite: rgba(255, 255, 255, 0.7);
   --etch-blend: multiply;
