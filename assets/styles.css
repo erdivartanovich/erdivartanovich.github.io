@@ -66,16 +66,57 @@ a:hover {
   text-align: center;
 }
 
-.masthead-title {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.42em;
-  text-indent: 0.42em;
-  color: var(--heading);
-  text-shadow: 0 1px 0 var(--panel);
+.masthead-wordmark {
+  display: block;
+  width: min(34rem, 100%);
+  height: auto;
+  margin: 0 auto;
   transform: translateY(1rem);
+}
+
+/* Stroking each layer in its own fill flattens the serif's thick/thin
+   contrast into the near-monoline mass of a struck inscription. */
+.masthead-wordmark text {
+  font-family: var(--font-display);
+  font-size: 76px;
+  font-weight: 700;
+  text-transform: uppercase;
+  stroke-width: 5;
+  paint-order: stroke fill;
+}
+
+/* Three stacked cuts make the groove: shadowed upper lip, lit lower lip,
+   metal face between them. */
+.masthead-etch-shadow {
+  fill: var(--etch-shadow);
+  stroke: var(--etch-shadow);
+}
+
+.masthead-etch-hilite {
+  fill: var(--etch-hilite);
+  stroke: var(--etch-hilite);
+}
+
+.masthead-etch-face,
+.masthead-etch-cross {
+  fill: url("#mw-metal");
+  stroke: url("#mw-metal");
+}
+
+.masthead-etch-cross {
+  font-size: 60px;
+}
+
+.mw-metal-top {
+  stop-color: var(--etch-face-top);
+}
+
+.mw-metal-mid {
+  stop-color: var(--etch-face-mid);
+}
+
+.mw-metal-low {
+  stop-color: var(--etch-face-low);
 }
 
 .masthead:hover {
@@ -523,10 +564,9 @@ nav#TOC a:hover {
     padding: 0 1.25rem;
   }
 
-  .masthead-title {
-    font-size: 1.15rem;
-    letter-spacing: 0.3em;
-    text-indent: 0.3em;
+  .masthead-wordmark {
+    width: min(27rem, 100%);
+    transform: translateY(0.75rem);
   }
 
   .site-nav {

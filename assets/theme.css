@@ -29,6 +29,12 @@
   --mark-bg: #eedccf;
   --veil: rgba(255, 255, 255, 0.34);
 
+  --etch-face-top: #3a2b1d;
+  --etch-face-mid: #241a12;
+  --etch-face-low: #4b3826;
+  --etch-shadow: rgba(38, 26, 16, 0.35);
+  --etch-hilite: rgba(255, 255, 255, 0.85);
+
   --danger: #b51e10;
   --warning: #8a4e00;
   --success: #0f7d4b;
@@ -62,6 +68,12 @@
     --selection-fg: #1e1a15;
     --mark-bg: #744438;
     --veil: rgba(30, 26, 21, 0.42);
+
+    --etch-face-top: #c3b3a0;
+    --etch-face-mid: #90806b;
+    --etch-face-low: #5c5040;
+    --etch-shadow: rgba(0, 0, 0, 0.85);
+    --etch-hilite: rgba(255, 240, 220, 0.22);
 
     --danger: #c9564a;
     --warning: #b85000;
