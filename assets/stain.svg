@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <!-- A soft ellipse pushed out of shape by turbulence: a plain radial gradient
+       reads as a vignette, an irregular edge reads as a stain. -->
+  <defs>
+    <radialGradient id="stain-falloff">
+      <stop offset="0" stop-color="#3a2a14" stop-opacity="0.34" />
+      <stop offset="0.55" stop-color="#3a2a14" stop-opacity="0.15" />
+      <stop offset="1" stop-color="#3a2a14" stop-opacity="0" />
+    </radialGradient>
+    <filter id="stain-blot" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="4" seed="5" result="blotch" />
+      <feDisplacementMap in="SourceGraphic" in2="blotch" scale="86" xChannelSelector="R" yChannelSelector="G" />
+      <feGaussianBlur stdDeviation="5" />
+    </filter>
+  </defs>
+  <ellipse cx="200" cy="150" rx="146" ry="106" fill="url(#stain-falloff)" filter="url(#stain-blot)" />
+</svg>
