@@ -330,6 +330,10 @@ mark {
 }
 
 .writing-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
   margin-bottom: 0.55rem;
 }
 
@@ -389,9 +393,8 @@ mark {
 }
 
 .writing-date {
-  color: var(--text-muted);
+  color: var(--text-subtle);
   font-variant-numeric: tabular-nums;
-  margin-right: 0.6rem;
 }
 
 .site-footer {
