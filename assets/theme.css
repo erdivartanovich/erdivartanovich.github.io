@@ -28,6 +28,8 @@
   --selection-fg: #ffffff;
   --mark-bg: #eedccf;
   --veil: rgba(255, 255, 255, 0.34);
+  --blade-filter: none;
+  --blade-blend: multiply;
 
   --etch-face-top: #3a2b1d;
   --etch-face-mid: #241a12;
@@ -67,7 +69,9 @@
     --selection-bg: #c76930;
     --selection-fg: #1e1a15;
     --mark-bg: #744438;
-    --veil: rgba(30, 26, 21, 0.42);
+    --veil: rgba(30, 26, 21, 0.30);
+    --blade-filter: invert(1) brightness(0.6) contrast(1.15) sepia(0.6) hue-rotate(-10deg);
+    --blade-blend: screen;
 
     --etch-face-top: #c3b3a0;
     --etch-face-mid: #90806b;

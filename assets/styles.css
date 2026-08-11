@@ -47,9 +47,9 @@ a:hover {
   outline-offset: 2px;
 }
 
-/* Masthead: blade texture etched into the panel (multiply drops its white
-   background in both modes), veiled toward legibility, wordmark on top. */
 .masthead {
+  position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,13 +57,30 @@ a:hover {
   height: var(--masthead-h);
   margin: 0 -2rem;
   padding: 0 2rem;
-  background-color: var(--bg);
-  background:
-    linear-gradient(to bottom, var(--veil), var(--panel) 110%),
-    url("/ulfberht.webp") center 26% / cover no-repeat var(--panel);
-  background-blend-mode: normal, multiply;
+  background: var(--panel);
   border-bottom: 1px solid var(--border-strong);
   text-align: center;
+}
+
+.masthead::before,
+.masthead::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Veil is a separate layer so the dark-mode inversion cannot reach it. */
+.masthead::before {
+  z-index: -2;
+  background: url("/ulfberht.webp") center 26% / cover no-repeat;
+  filter: var(--blade-filter);
+  mix-blend-mode: var(--blade-blend);
+}
+
+.masthead::after {
+  z-index: -1;
+  background: linear-gradient(to bottom, var(--veil), var(--panel) 110%);
 }
 
 .masthead-wordmark {
