@@ -300,6 +300,31 @@ pre code {
   font-size: inherit;
 }
 
+/* Marginalia: `::: margin` in the markdown. Set into the outer edge of the
+   text block so the prose runs around it, as a scribe's note would. */
+.margin {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-muted);
+  border-left: 2px solid var(--accent-muted);
+  padding-left: 0.9rem;
+  margin: 0.4rem 0 1rem;
+}
+
+.margin p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 52rem) {
+  .margin {
+    float: right;
+    width: 12rem;
+    margin: 0.35rem -2rem 0.9rem 1.6rem;
+  }
+}
+
 blockquote {
   margin: 0 0 1em;
   padding: 0.1em 1em;
@@ -390,6 +415,15 @@ p > img:only-child {
   margin: 0 auto;
   border: 1px solid var(--border-strong);
   border-radius: 6px;
+}
+
+/* Line art is drawn in ink on a transparent ground, so it needs no frame and
+   has to be lifted off the page in dark mode. Photographs must not be. */
+figure img[src$=".svg"],
+p > img[src$=".svg"]:only-child {
+  border: none;
+  border-radius: 0;
+  filter: var(--media-filter);
 }
 
 figcaption {
