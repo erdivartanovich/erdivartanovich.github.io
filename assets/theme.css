@@ -57,7 +57,7 @@
 
   --danger: #b51e10;
   --warning: #8a4e00;
-  --success: #0f7d4b;
+  --success: #0d7144;
   --hl: #a34a10;
 }
 
@@ -113,9 +113,9 @@
     --etch-blend: hard-light;
     --etch-opacity: 0.85;
 
-    --danger: #c9564a;
-    --warning: #b85000;
+    --danger: #ca5d52;
+    --warning: #bd6745;
     --success: #15a965;
-    --hl: #bf490a;
+    --hl: #c46348;
   }
 }
