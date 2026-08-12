@@ -17,6 +17,9 @@ $if(description-meta)$
     <meta name="description" content="$description-meta$" />
 $endif$
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+$-- Must track --panel in theme.css, light then dark.
+    <meta name="theme-color" content="#f4ead4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#241d14" media="(prefers-color-scheme: dark)" />
     <link rel="preload" as="image" href="/ulfberht.webp" fetchpriority="high" />
 $if(siteurl)$
     <link rel="canonical" href="$siteurl$/$pageurl$" />
