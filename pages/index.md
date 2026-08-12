@@ -1,5 +1,5 @@
 ---
-title: "Erdiansyah Arsyad's Manuscript"
+title: "Erdiansyah's Manuscript"
 description: "Erdiansyah — DevOps & software architect. Build efficient systems, built to outlast trends — like the Ulfberht blade."
 ---
 Welcome — Assalamu alaikum — Amitabha — Svastyastu.
