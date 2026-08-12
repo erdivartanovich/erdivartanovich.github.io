@@ -37,7 +37,7 @@ body {
   color: var(--text);
   border-left: 1px solid var(--border-strong);
   border-right: 1px solid var(--border-strong);
-  min-height: 100vh;
+  min-height: 100dvh;
   box-sizing: border-box;
   font: 17px/1.7 var(--font-body);
 }
