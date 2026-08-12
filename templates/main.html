@@ -185,12 +185,20 @@ $endfor$
       (() => {
         const root = document.documentElement;
         const button = document.querySelector(".theme-toggle");
-        // The theme-color metas are media-scoped, so an override has to force
-        // them; the value comes from the resolved page background, not a copy.
+        const metas = [...document.querySelectorAll('meta[name="theme-color"]')]
+          .map((meta) => ({ meta, media: meta.getAttribute("media"), content: meta.content }));
+        // The metas are media-scoped, so an override has to force them; the
+        // value comes from the resolved page background, not a copy.
         const syncChrome = () => {
-          if (!root.dataset.theme) return;
+          if (!root.dataset.theme) {
+            for (const { meta, media, content } of metas) {
+              meta.setAttribute("media", media);
+              meta.content = content;
+            }
+            return;
+          }
           const colour = getComputedStyle(document.body).backgroundColor;
-          for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+          for (const { meta } of metas) {
             meta.removeAttribute("media");
             meta.content = colour;
           }
@@ -201,8 +209,14 @@ $endfor$
         button.addEventListener("click", () => {
           const system = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
           const next = (root.dataset.theme || system) === "dark" ? "light" : "dark";
-          root.dataset.theme = next;
-          try { localStorage.setItem("theme", next); } catch {}
+          // Matching the system again means following it, not pinning to it.
+          if (next === system) {
+            delete root.dataset.theme;
+            try { localStorage.removeItem("theme"); } catch {}
+          } else {
+            root.dataset.theme = next;
+            try { localStorage.setItem("theme", next); } catch {}
+          }
           syncChrome();
         });
       })();
