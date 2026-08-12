@@ -416,10 +416,12 @@ pre code {
   margin-bottom: 0;
 }
 
+/* The measure is capped, so a floated note costs the same at every width:
+   10rem is the widest that still leaves the prose beside it readable. */
 @media (min-width: 52rem) {
   .margin {
     float: right;
-    width: 12rem;
+    width: 10rem;
     margin: 0.35rem -2rem 0.9rem 1.6rem;
   }
 }
