@@ -1,8 +1,11 @@
-/* Palette variables only; all layout/typography lives in styles.css.
-   Dark values are the base palette; light values are derived from the
-   same hues for a light-surface variant. */
+/* Palette variables, plus the color-scheme declaration they implement; all
+   layout/typography lives in styles.css. Dark values are the base palette;
+   light values are derived from the same hues for a light-surface variant. */
 
 :root {
+  /* Without this the UA paints scrollbars and form controls light in dark mode. */
+  color-scheme: light dark;
+
   --bg: #ded0b4;
   --panel: #f4ead4;
   --surface: #e9dcbe;
