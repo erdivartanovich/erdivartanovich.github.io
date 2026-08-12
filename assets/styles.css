@@ -389,11 +389,14 @@ pre {
   line-height: 1.55;
 }
 
+/* white-space: pandoc wraps unlabelled fences but leaves labelled ones
+   scrolling; both scroll here, so a long command never breaks mid-flag. */
 pre code {
   background: none;
   color: inherit;
   padding: 0;
   font-size: inherit;
+  white-space: pre;
 }
 
 /* Marginalia: `::: margin` in the markdown. Set into the outer edge of the
