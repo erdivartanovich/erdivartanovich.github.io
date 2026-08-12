@@ -575,11 +575,20 @@ mark {
 }
 
 .writing-list li {
+  margin-bottom: 1.15rem;
+}
+
+.writing-head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 1rem;
-  margin-bottom: 0.55rem;
+}
+
+.writing-desc {
+  margin: 0.1rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
 }
 
 .related {
