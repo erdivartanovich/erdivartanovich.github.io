@@ -61,6 +61,23 @@
   color-scheme: dark;
 }
 
+/* Without light-dark() every token above is invalid at computed-value time,
+   which also strands .site-nav a { color: transparent } with no gradient to
+   paint it. These restore the light values a nav needs to stay visible. */
+@supports not (color: light-dark(#000, #fff)) {
+  :root {
+    --bg: #ded0b4;
+    --panel: #f4ead4;
+    --text: #3d3123;
+    --heading: #2f2316;
+    --accent: #9c4e1d;
+    --nav-steel-top: #766653;
+    --nav-steel-low: #33271b;
+    --nav-steel-hot-top: #a25418;
+    --nav-steel-hot-low: #7d3a10;
+  }
+}
+
 /* Filters, blend modes and opacity cannot go through light-dark(), so these
    repeat under both dark conditions. Keep the two blocks identical. */
 :root {
