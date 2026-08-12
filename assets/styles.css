@@ -251,13 +251,29 @@ a:hover {
   background: none;
   color: var(--nav-steel-low);
   font: inherit;
-  font-size: 1.2em;
+  font-size: 1.15em;
   line-height: 1;
   cursor: pointer;
 }
 
 .theme-toggle:hover {
   color: var(--accent);
+}
+
+/* The glyph names the theme one click away, so it tracks the active scheme the
+   same way the palette does. FE0E keeps the sun as text, not emoji. */
+.theme-toggle::before {
+  content: "\263E";
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle::before {
+    content: "\2600\FE0E";
+  }
+}
+
+:root[data-theme="dark"] .theme-toggle::before {
+  content: "\2600\FE0E";
 }
 
 #title-block-header {
