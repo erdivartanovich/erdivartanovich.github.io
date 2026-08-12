@@ -71,6 +71,7 @@ $if(math)$
 $endif$
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 $for(include-before)$
     $include-before$
 $endfor$
@@ -133,8 +134,17 @@ $endif$
       $table-of-contents$
     </nav>
 $endif$
-    <main>
+    <main id="main">
       $body$
+$if(show-writings)$
+      <section class="writing-list">
+        <ul>
+$for(writings)$
+          <li><a href="$writings.url$">$writings.title$</a><span class="writing-date">$writings.date$</span></li>
+$endfor$
+        </ul>
+      </section>
+$endif$
     </main>
 $if(date-meta)$
 $if(related)$
@@ -147,15 +157,6 @@ $endfor$
       </ul>
     </section>
 $endif$
-$endif$
-$if(show-writings)$
-    <section class="writing-list">
-      <ul>
-$for(writings)$
-        <li><a href="$writings.url$">$writings.title$</a><span class="writing-date">$writings.date$</span></li>
-$endfor$
-      </ul>
-    </section>
 $endif$
 $for(include-after)$
     $include-after$

@@ -85,6 +85,26 @@ a:hover {
   outline-offset: 2px;
 }
 
+/* The masthead and sticky contents rail come before the prose in tab order. */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform: translateY(-120%);
+  padding: 0.5rem 0.9rem;
+  background: var(--panel);
+  color: var(--accent);
+  border: 1px solid var(--border-strong);
+  border-radius: 0 0 4px 0;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .masthead {
   position: relative;
   isolation: isolate;

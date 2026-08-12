@@ -34,7 +34,7 @@ $(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(WRITINGS_META) $(WORDMARK_ME
 	  --metadata-file=$(SITEMETA) --metadata-file=$(WRITINGS_META) \
 	  --metadata-file=$(WORDMARK_META) -o $@
 	@active="$(if $(filter index,$*),/,/$(firstword $(subst /, ,$*)).html)"; \
-	sed -i "s|<a href=\"$$active\">|<a class=\"active\" href=\"$$active\">|" $@
+	sed -i "0,\%<a href=\"$$active\">%s%%<a class=\"active\" aria-current=\"page\" href=\"$$active\">%" $@
 
 $(REDIRECT_HTML) $(LEGACY_HTML): | $(OUT)
 	@mkdir -p $(@D)
