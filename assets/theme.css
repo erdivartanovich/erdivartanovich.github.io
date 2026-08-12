@@ -114,9 +114,9 @@
     --etch-blend: hard-light;
     --etch-opacity: 0.85;
 
-    --danger: #ca5d52;
-    --warning: #bd6745;
+    --danger: #e0685a;
+    --warning: #d2a24a;
     --success: #15a965;
-    --hl: #c46348;
+    --hl: #d98a4e;
   }
 }
