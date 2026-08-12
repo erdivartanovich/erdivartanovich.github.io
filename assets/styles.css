@@ -828,8 +828,14 @@ nav#TOC a:hover {
     display: none;
   }
 
+  /* Clipped rather than display:none, so the date stays in the a11y tree. */
   .writing-date {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 
