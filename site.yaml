@@ -2,6 +2,16 @@ title-prefix: "erdivartanovich"
 siteurl: "https://erdivartanovich.github.io"
 author-meta: "Erdiansyah"
 lang: "en"
+# Feeds the Person JSON-LD. Ampersands would survive as entities inside the
+# script block, so keep these values free of them.
+person:
+  jobtitle: "Software Architect and DevOps Specialist"
+  email: "erdi@monommania.com"
+  locality: "Jakarta"
+  country: "Indonesia"
+  sameas:
+    - "https://github.com/erdivartanovich"
+    - "https://www.linkedin.com/in/erdivartanovich/"
 css:
   - "/theme.css"
   - "/styles.css"

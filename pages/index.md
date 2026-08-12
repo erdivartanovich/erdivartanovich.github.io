@@ -1,5 +1,6 @@
 ---
 title: "Erdiansyah's Manuscript"
+seo-title: "Erdiansyah — Software Architect & DevOps Specialist"
 description: "Erdiansyah — DevOps & software architect. Build efficient systems, built to outlast trends — like the Ulfberht blade."
 ---
 Welcome — Assalamu alaikum — Amitabha — Svastyastu.

@@ -27,7 +27,7 @@ $if(siteurl)$
     <meta property="og:url" content="$siteurl$/$pageurl$" />
 $endif$
     <meta property="og:type" content="$if(date-meta)$article$else$website$endif$" />
-    <meta property="og:title" content="$pagetitle$" />
+    <meta property="og:title" content="$if(seo-title)$$seo-title$$else$$pagetitle$$endif$" />
 $if(siteurl)$
 $-- Dimensions must track assets/ulfberht.webp.
     <meta property="og:image" content="$siteurl$/ulfberht.webp" />
@@ -61,9 +61,11 @@ $else$
     </script>
 $endif$
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Person","@id":"$siteurl$/#person","name":"Erdiansyah","url":"$siteurl$/"}
+    {"@context":"https://schema.org","@type":"Person","@id":"$siteurl$/#person","name":"Erdiansyah","url":"$siteurl$/"$if(person.jobtitle)$,"jobTitle":"$person.jobtitle$"$endif$$if(person.email)$,"email":"$person.email$"$endif$$if(person.locality)$,"address":{"@type":"PostalAddress","addressLocality":"$person.locality$"$if(person.country)$,"addressCountry":"$person.country$"$endif$}$endif$$if(person.sameas)$,"sameAs":[$for(person.sameas)$"$person.sameas$"$sep$,$endfor$]$endif$}
     </script>
-    <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+$-- seo-title replaces the whole imprint + page pattern, for pages whose own
+$-- title says nothing to a stranger arriving from search.
+    <title>$if(seo-title)$$seo-title$$else$$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$$endif$</title>
     <style>
       $styles.html()$
     </style>
@@ -179,7 +181,7 @@ $for(include-after)$
     $include-after$
 $endfor$
     <footer class="site-footer">
-      <p><span><a href="https://github.com/erdivartanovich/erdivartanovich.github.io">Code on GitHub</a></span><span class="footer-sep">|</span><span>Header bg-image: <a href="https://commons.wikimedia.org/wiki/File:Ulfberht.jpg">Ulfberht sword</a> by Torana, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> (cropped, color-blended).</span></p>
+      <p><span><a href="https://github.com/erdivartanovich/erdivartanovich.github.io">Code on GitHub</a></span><span class="footer-sep">|</span><span>Blade photograph: <a href="https://commons.wikimedia.org/wiki/File:Ulfberht.jpg">Ulfberht sword</a> by Torana, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, cropped and color-blended.</span></p>
     </footer>
     <script>
       (() => {
