@@ -5,13 +5,17 @@ description: "Erdiansyah — DevOps & software architect. Build efficient system
 ---
 Welcome — Assalamu alaikum — Amitabha — Svastyastu.
 
-::: {.lede}
+:::: {.lede}
 **Software architect and DevOps specialist, 18+ years.** I build the systems
 teams ship on — infrastructure, pipelines, platforms that hold at scale.
-Hiring? Start with the [portfolio](/portfolio.html) or [about](/about.html)
-page, or email <erdi@monommania.com>. Otherwise, stay for the
-[writings](/writings.html).
+
+::: {.cta}
+[See the work](/portfolio.html){.cta-primary}
+[Book a call](https://calendar.app.google/oSZNbjYsiEnXSPDT6)
 :::
+
+Or email <erdi@monommania.com> — more on the [about](/about.html) page.
+::::
 
 ## Ulfberht
 
