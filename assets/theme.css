@@ -3,7 +3,6 @@
    light values are derived from the same hues for a light-surface variant. */
 
 :root {
-  /* Without this the UA paints scrollbars and form controls light in dark mode. */
   color-scheme: light dark;
 
   --bg: #ded0b4;
@@ -80,7 +79,6 @@
     --accent-muted: #b08063;
     --secondary: #b19578;
 
-    /* Lighter than --panel: a darker hairline vanishes on a dark ground. */
     --border: #3a3123;
     --border-muted: #18130c;
     --border-strong: #3d3325;

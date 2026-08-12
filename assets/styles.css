@@ -14,7 +14,6 @@ html {
 }
 
 body {
-  /* ~70-character measure at the 17px body size. */
   max-width: 42rem;
   margin: 0 auto;
   padding: 0 2rem 4.5rem;
@@ -85,7 +84,6 @@ a:hover {
   outline-offset: 2px;
 }
 
-/* The masthead and sticky contents rail come before the prose in tab order. */
 .skip-link {
   position: absolute;
   top: 0;
@@ -389,8 +387,7 @@ pre {
   line-height: 1.55;
 }
 
-/* white-space: pandoc wraps unlabelled fences but leaves labelled ones
-   scrolling; both scroll here, so a long command never breaks mid-flag. */
+/* white-space: pandoc's own styles wrap unlabelled fences. */
 pre code {
   background: none;
   color: inherit;
@@ -416,8 +413,6 @@ pre code {
   margin-bottom: 0;
 }
 
-/* The measure is capped, so a floated note costs the same at every width:
-   10rem is the widest that still leaves the prose beside it readable. */
 @media (min-width: 52rem) {
   .margin {
     float: right;
@@ -589,7 +584,6 @@ mark {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  /* Not --accent-muted: that is an ornament colour, too faint for label text. */
   color: var(--secondary);
 }
 
@@ -707,7 +701,7 @@ nav#TOC a:hover {
     display: grid;
     grid-template-columns: 18rem minmax(0, 1fr);
     grid-template-rows: auto auto auto 1fr auto;
-    /* 18rem rail + gutters + the same 38rem measure a static page gets. */
+    /* Tracks body max-width: 18rem rail + gutters + the same measure. */
     max-width: 60rem;
     padding: 0;
   }
