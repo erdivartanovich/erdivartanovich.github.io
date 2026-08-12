@@ -811,6 +811,10 @@ nav#TOC a:hover {
   .site-nav::after {
     display: none;
   }
+
+  .writing-date {
+    display: none;
+  }
 }
 
 /* Skylighting token classes on top of the monochrome highlight base. */
