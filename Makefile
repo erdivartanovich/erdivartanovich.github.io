@@ -39,7 +39,7 @@ $(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(WRITINGS_META) $(WORDMARK_ME
 # Range starts at <main> so the TOC, which precedes it, keeps plain links; a
 # Header lua-filter would nest anchors inside them. --wrap=none above keeps
 # each heading on one line for this to match.
-	@sed -i '/<main id="main">/,$$ s|<h\([2-6]\) id="\([^"]*\)">\(.*\)</h\1>|<h\1 id="\2">\3 <a class="heading-anchor" href="#\2" aria-label="Permalink">\&sect;</a></h\1>|g' $@
+	@sed -i '/<main id="main">/,$$ s|<h\([2-6]\) id="\([^"]*\)">\(.*\)</h\1>|<h\1 id="\2">\3 <a class="heading-anchor" href="#\2" aria-labelledby="\2">\&sect;</a></h\1>|g' $@
 
 $(REDIRECT_HTML) $(LEGACY_HTML): | $(OUT)
 	@mkdir -p $(@D)
