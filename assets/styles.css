@@ -584,7 +584,8 @@ mark {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  color: var(--accent-muted);
+  /* Not --accent-muted: that is an ornament colour, too faint for label text. */
+  color: var(--secondary);
 }
 
 .related ul {
