@@ -35,9 +35,9 @@
   --rule: rgba(122, 92, 46, 0.13);
   --initial-bg: rgba(196, 160, 96, 0.16);
   --media-filter: none;
-  --nav-steel-top: #8c7a63;
+  --nav-steel-top: #766653;
   --nav-steel-low: #33271b;
-  --nav-steel-hot-top: #c2661f;
+  --nav-steel-hot-top: #a25418;
   --nav-steel-hot-low: #7d3a10;
   --nav-emboss-hi: rgba(255, 250, 236, 0.9);
   --nav-emboss-lo: rgba(58, 38, 18, 0.4);
@@ -93,9 +93,9 @@
     --initial-bg: rgba(199, 105, 48, 0.12);
     --media-filter: invert(1) sepia(0.5) hue-rotate(-12deg) saturate(1.4);
     --nav-steel-top: #c4b49c;
-    --nav-steel-low: #625139;
+    --nav-steel-low: #8e867d;
     --nav-steel-hot-top: #e2933f;
-    --nav-steel-hot-low: #9d521a;
+    --nav-steel-hot-low: #ad7b66;
     --nav-emboss-hi: rgba(255, 231, 197, 0.24);
     --nav-emboss-lo: rgba(0, 0, 0, 0.8);
 
