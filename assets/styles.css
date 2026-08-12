@@ -439,6 +439,21 @@ pre code {
   white-space: pre;
 }
 
+/* Elevator pitch: `::: lede` in the markdown.*/
+.lede {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--heading);
+  border-top: 1px solid var(--accent-muted);
+  border-bottom: 1px solid var(--accent-muted);
+  padding: 1.1em 0;
+  margin: 1.6em 0 2em;
+}
+
+.lede p {
+  margin: 0;
+}
+
 /* Marginalia: `::: margin` in the markdown. Set into the outer edge of the
    text block so the prose runs around it, as a scribe's note would. */
 .margin {

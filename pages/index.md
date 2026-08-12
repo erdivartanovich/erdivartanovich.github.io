@@ -4,34 +4,30 @@ description: "Erdiansyah — DevOps & software architect. Build efficient system
 ---
 Welcome — Assalamu alaikum — Amitabha — Svastyastu.
 
-I am a software architect and DevOps specialist with over 18 years of
-experience. I build systems and [write](/writings.html) about shell scripting
-and infrastructure — the tools that turn ideas into software that ships.
-
-This site also serves as a [portfolio](/portfolio.html), and you can find more
-details about me on the [about](/about.html) page.
+::: {.lede}
+**Software architect and DevOps specialist, 18+ years.** I build the systems
+teams ship on — infrastructure, pipelines, platforms that hold at scale.
+Hiring? Start with the [portfolio](/portfolio.html) or [about](/about.html)
+page, or email <erdi@monommania.com>. Otherwise, stay for the
+[writings](/writings.html).
+:::
 
 ## Ulfberht
 
 This site is inspired by the **Ulfberht**, a Viking-era blade marked with
-+ULFBERHT+ along its fuller. It was forged between the 9th and 11th centuries.
-This marking was a signature, not just decoration. Only around 170 of these
-blades have survived, and the genuine ones shared a unique secret: they were
-made from steel that was centuries ahead of its time.
++ULFBERHT+ along its fuller. Only around 170 have survived, and the genuine
+ones shared a secret: steel that was nearly pure — no slag, no shortcuts.
 
-The metal was nearly pure — with no slag and no shortcuts. Its carbon content
-was comparable to that of 19th-century industrial iron. The design was simple.
-No gilding, no ornamentation. It did one job better than anything else on the
-battlefield, and it lasted far beyond its time.
+The design was simple. No gilding, no ornamentation. It did one job better than
+anything else on the battlefield, and it lasted far beyond its time.
 
 That is the philosophy I respect and follow: **pure tools, efficient systems,
-and no compromise on quality**. No ornamentation where function is sufficient.
+and no compromise on quality**.
 
 - **Daily driver, plain and minimal** — Linux, Vim/Neovim, ZSH. No frameworks,
   no plugin overload.
-- **Dull tools that endure** — markdown, pandoc, make. The stack behind this
-  site is the software equivalent of crucible steel: plain in appearance,
-  strong and durable.
+- **Dull tools that endure** — the stack behind this site is the software
+  equivalent of crucible steel: plain in appearance, strong and durable.
 - **One job, done correctly** — a build pipeline turns words into pages; a
   blade cuts through. Neither asks for recognition.
 - **Real over trendy** — fake Ulfberhts flooded the market, ordinary iron
@@ -43,12 +39,10 @@ and no compromise on quality**. No ornamentation where function is sufficient.
 The second part of my name is a tribute to chess. **Tigran Vartanovich
 Petrosian** — "Vartanovich" meaning "son of Vartan" — ruled the world
 championship from 1963 to 1969. Everyone called him **Iron Tigran**, not
-because he is a strong man.
+because he was a strong man.
 
-His playing style appeared dull. Quiet moves, careful positioning, no flash. Opponents
-pushed and found nothing, then slowly lost because of their own mistakes.
-Chess spectators were bored of his style, but the scoreboard told a different
-story.
+His playing style appeared dull. Quiet moves, careful positioning, no flash.
+Opponents pushed, found nothing, then lost to their own mistakes.
 
 That is the same blade, honed differently. The Ulfberht lasted because its
 steel didn't break. Petrosian lasted because his positions didn't. **Solidity
@@ -56,9 +50,8 @@ over showmanship, patience over brilliance.**
 
 Boring can win championships. Boring doesn't fail at 3 a.m. I'll take boring.
 
-See [how this site is built](/writings/building-this-site.html) — markdown,
-pandoc, make, nothing more. The [writings](/writings.html) show the thinking
-behind the machine.
+The same philosophy, applied: [how this site is
+built](/writings/building-this-site.html).
 
 ---
 
