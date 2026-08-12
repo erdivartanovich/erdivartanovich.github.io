@@ -14,7 +14,8 @@ html {
 }
 
 body {
-  max-width: 50rem;
+  /* ~70-character measure at the 17px body size. */
+  max-width: 42rem;
   margin: 0 auto;
   padding: 0 2rem 4.5rem;
   position: relative;
@@ -637,7 +638,7 @@ mark {
 }
 
 /* TOC: inline box by default; on wide screens the page becomes a grid
-   (18rem rail + content, one 68rem composition) and the TOC is a sticky
+   (18rem rail + content, one 60rem composition) and the TOC is a sticky
    rail — it scrolls with the masthead, then pins to the viewport top. */
 nav#TOC {
   border: 1px solid var(--border);
@@ -680,7 +681,8 @@ nav#TOC a:hover {
     display: grid;
     grid-template-columns: 18rem minmax(0, 1fr);
     grid-template-rows: auto auto auto 1fr auto;
-    max-width: 68rem;
+    /* 18rem rail + gutters + the same 38rem measure a static page gets. */
+    max-width: 60rem;
     padding: 0;
   }
 
