@@ -29,12 +29,17 @@ $(WORDMARK_META): $(SITEMETA) scripts/gen-wordmark.sh
 $(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(WRITINGS_META) $(WORDMARK_META)
 	@mkdir -p $(@D)
 	$(PANDOC) $< -f $(READER) --template $(TEMPLATE) --standalone --highlight-style=monochrome \
+	  --wrap=none \
 	  $$(awk '/^---$$/{n++; if(n==2) exit} /^date:/{printf "--toc --toc-depth=3"; exit}' $<) \
 	  -M pageurl="$(if $(filter index,$*),,$*.html)" \
 	  --metadata-file=$(SITEMETA) --metadata-file=$(WRITINGS_META) \
 	  --metadata-file=$(WORDMARK_META) -o $@
 	@active="$(if $(filter index,$*),/,/$(firstword $(subst /, ,$*)).html)"; \
 	sed -i "0,\%<a href=\"$$active\">%s%%<a class=\"active\" aria-current=\"page\" href=\"$$active\">%" $@
+# Range starts at <main> so the TOC, which precedes it, keeps plain links; a
+# Header lua-filter would nest anchors inside them. --wrap=none above keeps
+# each heading on one line for this to match.
+	@sed -i '/<main id="main">/,$$ s|<h\([2-6]\) id="\([^"]*\)">\(.*\)</h\1>|<h\1 id="\2">\3 <a class="heading-anchor" href="#\2" aria-label="Permalink">\&sect;</a></h\1>|g' $@
 
 $(REDIRECT_HTML) $(LEGACY_HTML): | $(OUT)
 	@mkdir -p $(@D)

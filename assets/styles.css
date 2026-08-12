@@ -322,6 +322,18 @@ h6 {
   font-size: 1rem;
 }
 
+.heading-anchor {
+  margin-left: 0.25em;
+  font-size: 0.7em;
+  vertical-align: 0.1em;
+  opacity: 0;
+}
+
+:is(h2, h3, h4, h5, h6):hover > .heading-anchor,
+.heading-anchor:focus-visible {
+  opacity: 1;
+}
+
 /* Scribe's ruling, one line per body line-height. */
 main {
   background-image: linear-gradient(
