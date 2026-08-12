@@ -11,7 +11,7 @@ related:
     title: "Most shell scripts don't need if"
 ---
 
-![](/media/cat-tutorial.svg)
+![Tutorial / How-to — step by step, no magic](/media/cat-tutorial.svg){width=800 height=220}
 
 Do you ever watch a senior dev type several lines of config right at
 the shell prompt, without opening an editor or a scratch file? The

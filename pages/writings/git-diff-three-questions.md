@@ -9,7 +9,7 @@ related:
     title: "Building this site: pandoc, make, and nothing else"
 ---
 
-![](/media/cat-tutorial.svg)
+![Tutorial / How-to — step by step, no magic](/media/cat-tutorial.svg){width=800 height=220}
 
 You stage a file, run `git diff` to double-check it, and see... nothing.
 That tiny heart attack before your first PR of the day is real.

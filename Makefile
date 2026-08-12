@@ -1,4 +1,6 @@
 PANDOC       = pandoc
+# implicit_figures off: it turns any image with alt text into a captioned figure.
+READER       = markdown-implicit_figures
 TEMPLATE     = templates/main.html
 SITEMETA     = site.yaml
 WRITINGS_META = writings.yaml
@@ -26,7 +28,7 @@ $(WORDMARK_META): $(SITEMETA) scripts/gen-wordmark.sh
 # Pages with a date: in frontmatter (= writings) also get a table of contents.
 $(OUT)/%.html: pages/%.md $(TEMPLATE) $(SITEMETA) $(WRITINGS_META) $(WORDMARK_META)
 	@mkdir -p $(@D)
-	$(PANDOC) $< --template $(TEMPLATE) --standalone --highlight-style=monochrome \
+	$(PANDOC) $< -f $(READER) --template $(TEMPLATE) --standalone --highlight-style=monochrome \
 	  $$(awk '/^---$$/{n++; if(n==2) exit} /^date:/{printf "--toc --toc-depth=3"; exit}' $<) \
 	  -M pageurl="$(if $(filter index,$*),,$*.html)" \
 	  --metadata-file=$(SITEMETA) --metadata-file=$(WRITINGS_META) \

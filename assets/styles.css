@@ -460,8 +460,10 @@ hr::after {
   color: var(--accent-muted);
 }
 
+/* height:auto so the intrinsic width/height attributes don't fight max-width. */
 img {
   max-width: 100%;
+  height: auto;
 }
 
 /* Illuminated initial. Unfloated, so it sits on the first line's baseline and

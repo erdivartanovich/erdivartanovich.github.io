@@ -11,7 +11,7 @@ related:
     title: "Most shell scripts don't need if"
 ---
 
-![](/media/cat-tutorial.svg)
+![Tutorial / How-to — step by step, no magic](/media/cat-tutorial.svg){width=800 height=220}
 
 Years ago I lived in Emacs. org-mode won me over in a week. Notes,
 todos, and drafts all live in one plain-text file — no database

@@ -11,7 +11,7 @@ related:
     title: "When cat isn't cat: an alias that corrupts your files"
 ---
 
-![](/media/cat-opinion.svg)
+![Opinion / Insight — takes and tradeoffs](/media/cat-opinion.svg){width=800 height=220}
 
 Open any seasoned engineer's dotfiles and you'll notice something odd:
 there's barely an `if` statement in sight. Your own deploy script, by

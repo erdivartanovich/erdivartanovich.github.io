@@ -9,7 +9,7 @@ related:
     title: "Most shell scripts don't need if"
 ---
 
-![](/media/cat-gotchas.svg)
+![Gotchas — sharp edges, found the hard way](/media/cat-gotchas.svg){width=800 height=220}
 
 I shipped myself a bug so sneaky it deserved a post-mortem. There was no
 error and no stack trace — just a config file that looked fine and broke
