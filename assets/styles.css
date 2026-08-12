@@ -700,7 +700,7 @@ nav#TOC a:hover {
   color: var(--accent);
 }
 
-@media (min-width: 70.01rem) {
+@media (min-width: 62rem) {
   body:has(nav#TOC) {
     display: grid;
     grid-template-columns: 18rem minmax(0, 1fr);
