@@ -245,6 +245,21 @@ a:hover {
   text-decoration: none;
 }
 
+.theme-toggle {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--nav-steel-low);
+  font: inherit;
+  font-size: 1.2em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+}
+
 #title-block-header {
   margin-bottom: 2.75rem;
 }

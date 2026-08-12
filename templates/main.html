@@ -76,6 +76,8 @@ $endfor$
 $if(math)$
     $math$
 $endif$
+$-- Runs before first paint so a stored choice does not flash the other theme.
+    <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -112,6 +114,8 @@ $if(navigation)$
 $for(navigation)$
       <a href="$navigation.url$">$navigation.label$</a>
 $endfor$
+$-- hidden until the script below removes it, so it is never a dead control.
+      <button class="theme-toggle" type="button" aria-label="Switch theme" hidden>◐</button>
     </nav>
 $endif$
 $if(title)$
@@ -177,5 +181,19 @@ $endfor$
     <footer class="site-footer">
       <p><span><a href="https://github.com/erdivartanovich/erdivartanovich.github.io">Code on GitHub</a></span><span class="footer-sep">|</span><span>Header bg-image: <a href="https://commons.wikimedia.org/wiki/File:Ulfberht.jpg">Ulfberht sword</a> by Torana, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> (cropped, color-blended).</span></p>
     </footer>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var button = document.querySelector(".theme-toggle");
+        if (!button) return;
+        button.hidden = false;
+        button.addEventListener("click", function () {
+          var system = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          var next = (root.dataset.theme || system) === "dark" ? "light" : "dark";
+          root.dataset.theme = next;
+          try { localStorage.setItem("theme", next); } catch (e) {}
+        });
+      })();
+    </script>
   </body>
 </html>

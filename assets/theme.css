@@ -1,120 +1,100 @@
 /* Palette variables, plus the color-scheme declaration they implement; all
-   layout/typography lives in styles.css. Dark values are the base palette;
-   light values are derived from the same hues for a light-surface variant. */
+   layout/typography lives in styles.css. Each token carries light then dark in
+   one light-dark() pair, resolved by the active color-scheme below. */
 
 :root {
   color-scheme: light dark;
 
-  --bg: #ded0b4;
-  --panel: #f4ead4;
-  --surface: #e9dcbe;
-  --surface-1: #f0e6cd;
-  --code-bg: #ece0c4;
+  --bg: light-dark(#ded0b4, #0d0a06);
+  --panel: light-dark(#f4ead4, #241d14);
+  --surface: light-dark(#e9dcbe, #2d2519);
+  --surface-1: light-dark(#f0e6cd, #383022);
+  --code-bg: light-dark(#ece0c4, #17120b);
 
-  --text: #3d3123;
-  --text-muted: #5a5043;
-  --text-subtle: #6b6158;
-  --heading: #2f2316;
+  --text: light-dark(#3d3123, #c3c2c1);
+  --text-muted: light-dark(#5a5043, #989796);
+  --text-subtle: light-dark(#6b6158, #9b9a9a);
+  --heading: light-dark(#2f2316, #e8e8e8);
 
-  --accent: #9c4e1d;
-  --accent-hover: #7a3c14;
-  --accent-code: #8e4a20;
-  --accent-muted: #96684a;
-  --secondary: #7d5c34;
+  --accent: light-dark(#9c4e1d, #cd6d32);
+  --accent-hover: light-dark(#7a3c14, #d89972);
+  --accent-code: light-dark(#8e4a20, #ca8c66);
+  --accent-muted: light-dark(#96684a, #b08063);
+  --secondary: light-dark(#7d5c34, #b19578);
 
-  --border: #dccdaa;
-  --border-muted: #e5d9bd;
-  --border-strong: #bfa982;
+  --border: light-dark(#dccdaa, #3a3123);
+  --border-muted: light-dark(#e5d9bd, #18130c);
+  --border-strong: light-dark(#bfa982, #3d3325);
 
-  --selection-bg: #9c4e1d;
-  --selection-fg: #ffffff;
-  --mark-bg: #ecd9a8;
-  --veil: rgba(255, 255, 255, 0.34);
+  --selection-bg: light-dark(#9c4e1d, #c76930);
+  --selection-fg: light-dark(#ffffff, #1e1a15);
+  --mark-bg: light-dark(#ecd9a8, #744438);
+  --veil: light-dark(rgba(255, 255, 255, 0.34), rgba(30, 26, 21, 0.3));
   --parchment-blend: hard-light;
-  --rule: rgba(122, 92, 46, 0.13);
-  --initial-bg: rgba(196, 160, 96, 0.16);
-  --media-filter: none;
-  --nav-steel-top: #766653;
-  --nav-steel-low: #33271b;
-  --nav-steel-hot-top: #a25418;
-  --nav-steel-hot-low: #7d3a10;
-  --nav-emboss-hi: rgba(255, 250, 236, 0.9);
-  --nav-emboss-lo: rgba(58, 38, 18, 0.4);
+  --rule: light-dark(rgba(122, 92, 46, 0.13), rgba(226, 200, 156, 0.055));
+  --initial-bg: light-dark(rgba(196, 160, 96, 0.16), rgba(199, 105, 48, 0.12));
+  --nav-steel-top: light-dark(#766653, #c4b49c);
+  --nav-steel-low: light-dark(#33271b, #8e867d);
+  --nav-steel-hot-top: light-dark(#a25418, #e2933f);
+  --nav-steel-hot-low: light-dark(#7d3a10, #ad7b66);
+  --nav-emboss-hi: light-dark(rgba(255, 250, 236, 0.9), rgba(255, 231, 197, 0.24));
+  --nav-emboss-lo: light-dark(rgba(58, 38, 18, 0.4), rgba(0, 0, 0, 0.8));
 
+  --etch-face-top: light-dark(#c7a29f, #a87a4c);
+  --etch-face-mid: light-dark(#ad6a39, #8a5f38);
+  --etch-face-low: light-dark(#77604d, #64432a);
+  --etch-shadow: light-dark(rgba(38, 26, 16, 0.28), rgba(0, 0, 0, 0.45));
+  --etch-hilite: light-dark(rgba(255, 255, 255, 0.7), rgba(255, 214, 168, 0.16));
+
+  --danger: light-dark(#b51e10, #e0685a);
+  --warning: light-dark(#8a4e00, #d2a24a);
+  --success: light-dark(#0d7144, #15a965);
+  --hl: light-dark(#a34a10, #d98a4e);
+}
+
+/* Manual override; without either attribute the system preference decides. */
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Filters, blend modes and opacity cannot go through light-dark(), so these
+   repeat under both dark conditions. Keep the two blocks identical. */
+:root {
+  --media-filter: none;
   --stain-blend: multiply;
   --stain-filter: none;
   --blade-filter: none;
   --blade-blend: multiply;
-
-  --etch-face-top: #c7a29f;
-  --etch-face-mid: #ad6a39;
-  --etch-face-low: #77604d;
-  --etch-shadow: rgba(38, 26, 16, 0.28);
-  --etch-hilite: rgba(255, 255, 255, 0.7);
   --etch-blend: multiply;
   --etch-opacity: 0.9;
-
-  --danger: #b51e10;
-  --warning: #8a4e00;
-  --success: #0d7144;
-  --hl: #a34a10;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0d0a06;
-    --panel: #241d14;
-    --surface: #2d2519;
-    --surface-1: #383022;
-    --code-bg: #17120b;
-
-    --text: #c3c2c1;
-    --text-muted: #989796;
-    --text-subtle: #9b9a9a;
-    --heading: #e8e8e8;
-
-    --accent: #cd6d32;
-    --accent-hover: #d89972;
-    --accent-code: #ca8c66;
-    --accent-muted: #b08063;
-    --secondary: #b19578;
-
-    --border: #3a3123;
-    --border-muted: #18130c;
-    --border-strong: #3d3325;
-
-    --selection-bg: #c76930;
-    --selection-fg: #1e1a15;
-    --mark-bg: #744438;
-    --veil: rgba(30, 26, 21, 0.30);
-    --parchment-blend: hard-light;
-    --rule: rgba(226, 200, 156, 0.055);
-    --initial-bg: rgba(199, 105, 48, 0.12);
+  :root:not([data-theme="light"]) {
     --media-filter: invert(1) sepia(0.5) hue-rotate(-12deg) saturate(1.4);
-    --nav-steel-top: #c4b49c;
-    --nav-steel-low: #8e867d;
-    --nav-steel-hot-top: #e2933f;
-    --nav-steel-hot-low: #ad7b66;
-    --nav-emboss-hi: rgba(255, 231, 197, 0.24);
-    --nav-emboss-lo: rgba(0, 0, 0, 0.8);
-
     --stain-blend: screen;
     --stain-filter: invert(1) sepia(1) hue-rotate(-35deg) saturate(2.6)
       brightness(1.1);
-    --blade-filter: invert(1) brightness(0.6) contrast(1.15) sepia(0.6) hue-rotate(-10deg);
+    --blade-filter: invert(1) brightness(0.6) contrast(1.15) sepia(0.6)
+      hue-rotate(-10deg);
     --blade-blend: screen;
-
-    --etch-face-top: #a87a4c;
-    --etch-face-mid: #8a5f38;
-    --etch-face-low: #64432a;
-    --etch-shadow: rgba(0, 0, 0, 0.45);
-    --etch-hilite: rgba(255, 214, 168, 0.16);
     --etch-blend: hard-light;
     --etch-opacity: 0.85;
-
-    --danger: #e0685a;
-    --warning: #d2a24a;
-    --success: #15a965;
-    --hl: #d98a4e;
   }
+}
+
+:root[data-theme="dark"] {
+  --media-filter: invert(1) sepia(0.5) hue-rotate(-12deg) saturate(1.4);
+  --stain-blend: screen;
+  --stain-filter: invert(1) sepia(1) hue-rotate(-35deg) saturate(2.6)
+    brightness(1.1);
+  --blade-filter: invert(1) brightness(0.6) contrast(1.15) sepia(0.6)
+    hue-rotate(-10deg);
+  --blade-blend: screen;
+  --etch-blend: hard-light;
+  --etch-opacity: 0.85;
 }
