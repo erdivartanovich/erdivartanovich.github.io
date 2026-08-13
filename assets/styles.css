@@ -251,7 +251,7 @@ a:hover {
   background: none;
   color: var(--nav-steel-low);
   font: inherit;
-  font-size: 1.15em;
+  font-size: 1.75em;
   line-height: 1;
   cursor: pointer;
 }
