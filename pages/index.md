@@ -11,7 +11,7 @@ teams ship on — infrastructure, pipelines, platforms that hold at scale.
 
 ::: {.cta}
 [See the work](/portfolio.html){.cta-primary}
-[Book a call](https://calendar.app.google/oSZNbjYsiEnXSPDT6)
+[Let's talk](https://calendar.app.google/oSZNbjYsiEnXSPDT6)
 :::
 
 Or email <erdi@monommania.com> — more on the [about](/about.html) page.
