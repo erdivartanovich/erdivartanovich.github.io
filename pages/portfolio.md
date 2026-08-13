@@ -59,7 +59,7 @@ the pipelines that ship and run them.
   Sep 2018–Nov 2021. Launched 6 B2C and 6 B2B products in 3 years; designed
   cloud-based microservice architecture (AWS, Golang, Docker, Kubernetes,
   PostgreSQL); led a team of 30 developers.
-- **Project Lead** — Keller Williams, Austin TX (remote), Jun–Aug 2018. Led
+- **Software Engineer** — Keller Williams, Austin TX (remote), Jun–Aug 2018. Led
   development of their core PubSub system.
 - **VP of Admission, Programming Mentor** — Refactory.id, Bandung,
   Mar 2017–Aug 2018. Recruited and trained software engineering talent;
